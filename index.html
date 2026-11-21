@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SevaSetu — All-In-One Donation &amp; Food Rescue Platform</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    globalThis.tailwind = globalThis.tailwind || {};
+    globalThis.tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'primary': '#16845B',
+            'on-primary': '#FFFFFF',
+            'primary-hover': '#006C48',
+            'primary-container': '#BEFFDB',
+            'on-primary-container': '#002113',
+            'primary-tint': '#F4FFF6',
+            'secondary': '#FFF9F0',
+            'on-secondary': '#252A29',
+            'accent': '#F4B942',
+            'on-accent': '#271900',
+            'accent-container': '#FFEED8',
+            'on-accent-container': '#412D00',
+            'surface': '#FFFFFF',
+            'surface-secondary': '#F5F7F6',
+            'surface-container': '#EDF2F0',
+            'on-surface': '#252A29',
+            'on-surface-muted': '#5A5F5E',
+            'outline': '#C3C7C6',
+            'outline-variant': '#DFE3E1',
+            'success': '#16845B',
+            'on-success': '#FFFFFF',
+            'success-container': '#BEFFDB',
+            'on-success-container': '#002113',
+            'warning': '#9C6F00',
+            'on-warning': '#060606',
+            'warning-container': '#FFEED8',
+            'on-warning-container': '#271900',
+            'error': '#BA1A1A',
+            'on-error': '#FFFFFF',
+            'error-container': '#FFDAD6',
+            'on-error-container': '#410002',
+            'info': '#006398',
+            'on-info': '#FFFFFF',
+            'info-container': '#E7F2FF',
+            'on-info-container': '#001D31',
+          },
+          borderRadius: {
+            'sm': '6px',
+            'DEFAULT': '10px',
+            'md': '12px',
+            'lg': '16px',
+            'xl': '24px',
+            'full': '9999px',
+          },
+          fontFamily: {
+            'display': ['"Poppins"', 'sans-serif'],
+            'headline': ['"Poppins"', 'sans-serif'],
+            'title': ['"Inter"', 'sans-serif'],
+            'body': ['"Inter"', 'sans-serif'],
+            'label': ['"Inter"', 'sans-serif'],
+          },
+          fontSize: {
+            'display-lg': ['48px', { lineHeight: '56px', letterSpacing: '-0.5px', fontWeight: '700' }],
+            'display-lg-mobile': ['32px', { lineHeight: '40px', letterSpacing: '-0.25px', fontWeight: '700' }],
+            'headline-lg': ['36px', { lineHeight: '44px', letterSpacing: '-0.25px', fontWeight: '700' }],
+            'headline-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+            'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '0px', fontWeight: '600' }],
+            'headline-sm': ['20px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '600' }],
+            'title-lg': ['18px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '600' }],
+            'title-md': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '600' }],
+            'body-lg': ['16px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '400' }],
+            'body-md': ['14px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+            'body-sm': ['12px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+            'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+            'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '600' }],
+            'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.3px', fontWeight: '600' }],
+          }
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <style>
+    .material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; vertical-align: middle; }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body min-h-screen flex flex-col">
+
+  <!-- Shared App Header -->
+  <header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-outline-variant shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between gap-4 py-3.5">
+        <a href="./index.html" class="flex items-center gap-2.5 shrink-0 hover:opacity-90 transition-opacity">
+          <div class="w-10 h-10 rounded-md bg-primary text-on-primary flex items-center justify-center shadow-sm">
+            <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">volunteer_activism</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-headline text-title-lg text-on-surface leading-none font-bold">SevaSetu</span>
+            <span class="font-body text-body-sm text-primary-hover font-medium">Donate &amp; Rescue</span>
+          </div>
+        </a>
+
+        <nav aria-label="Main navigation" class="hidden xl:flex items-center gap-5">
+          <a href="./index.html" class="font-label text-label-lg text-primary-hover border-b-2 border-primary pb-0.5 whitespace-nowrap font-semibold">Home</a>
+          <a href="./donate-items/DonateItems.html" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">Donate Items</a>
+          <a href="./food-rescue/FoodRescue.html" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">Food Rescue</a>
+          <a href="./find-ashram/FindAshram.html" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">Find an Ashram</a>
+          <a href="#how-it-works" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">How It Works</a>
+          <a href="./proof-of-donation/ProofOfDonation.html" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">Track &amp; Proof</a>
+        </nav>
+
+        <div class="flex items-center gap-2.5 shrink-0">
+          <button type="button" id="langToggle" onclick="toggleLang()" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-secondary text-on-surface border border-outline-variant hover:border-primary transition-colors" aria-label="Switch language">
+            <span class="material-symbols-outlined text-body-lg text-primary-hover" aria-hidden="true">translate</span>
+            <span id="langLabel" class="font-label text-label-sm font-semibold">EN / தமிழ்</span>
+          </button>
+
+          <div class="relative">
+            <button onclick="toggleNotificationDropdown()" type="button" aria-label="Notifications" class="relative inline-flex items-center justify-center w-10 h-10 rounded-full bg-surface-secondary text-on-surface hover:bg-surface-container transition-colors">
+              <span class="material-symbols-outlined text-title-lg" aria-hidden="true">notifications</span>
+              <span data-component-id="badge-numeric" aria-hidden="true" class="absolute -top-0.5 -right-0.5 inline-flex items-center justify-center min-w-4 h-4 px-1 rounded-full bg-error text-on-error tabular-nums text-label-sm font-bold">
+                3
+              </span>
+            </button>
+          </div>
+
+          <button type="button" onclick="document.getElementById('authModal').classList.remove('hidden')" aria-label="Login or Register" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-full bg-surface-secondary text-on-surface hover:bg-surface-container transition-colors border border-outline-variant">
+            <span class="material-symbols-outlined text-title-lg text-primary-hover" aria-hidden="true">account_circle</span>
+            <span class="hidden md:inline font-label text-label-md font-semibold">Priya</span>
+          </button>
+
+          <a href="./donate-items/DonateItems.html" class="hidden sm:inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full bg-primary text-on-primary hover:bg-primary-hover transition-colors whitespace-nowrap font-label text-label-md font-semibold shadow-sm">
+            Donate Now
+          </a>
+
+          <a href="./food-rescue/FoodRescue.html" class="hidden sm:inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full bg-accent text-on-accent hover:opacity-90 transition-opacity whitespace-nowrap font-label text-label-md font-semibold shadow-sm">
+            Rescue Food
+          </a>
+
+          <button type="button" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="xl:hidden inline-flex items-center justify-center w-10 h-10 rounded-full bg-surface-secondary text-on-surface" aria-label="Open menu">
+            <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobileMenu" class="hidden xl:hidden pb-4 border-t border-outline-variant pt-3">
+        <div class="grid grid-cols-2 gap-2">
+          <a href="./index.html" class="px-3 py-2 rounded-md bg-primary-tint text-primary-hover font-label text-label-md font-semibold">Home</a>
+          <a href="./donate-items/DonateItems.html" class="px-3 py-2 rounded-md hover:bg-surface-secondary font-label text-label-md">Donate Items</a>
+          <a href="./food-rescue/FoodRescue.html" class="px-3 py-2 rounded-md hover:bg-surface-secondary font-label text-label-md">Food Rescue</a>
+          <a href="./find-ashram/FindAshram.html" class="px-3 py-2 rounded-md hover:bg-surface-secondary font-label text-label-md">Find an Ashram</a>
+          <a href="./proof-of-donation/ProofOfDonation.html" class="px-3 py-2 rounded-md hover:bg-surface-secondary font-label text-label-md">Track &amp; Proof</a>
+          <a href="#footer-contact" class="px-3 py-2 rounded-md hover:bg-surface-secondary font-label text-label-md">About &amp; Contact</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1">
+    <!-- Hero Section -->
+    <section class="bg-secondary border-b border-outline-variant relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-6 flex flex-col gap-6">
+            <div class="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full bg-primary-container text-on-primary-container shadow-sm">
+              <span class="material-symbols-outlined text-body-lg" aria-hidden="true">verified_user</span>
+              <span class="font-label text-label-sm font-semibold">100% Verified NGOs &amp; Photo-Backed Delivery Proof</span>
+            </div>
+
+            <h1 class="font-display text-display-lg-mobile lg:text-display-lg text-on-surface text-balance" id="heroHeadline">
+              Small Acts of Kindness. Big Changes in Lives.
+            </h1>
+
+            <p class="font-body text-body-lg text-on-surface-muted text-pretty max-w-prose">
+              Donate essential items from your doorstep and rescue surplus food for those who need it. We collect, deliver, and provide verified proof of every successful donation.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-3">
+              <span class="font-label text-label-md text-primary-hover font-semibold">Your Unused Items. Our Responsible Delivery. A Better Tomorrow.</span>
+            </div>
+
+            <!-- Two Prominent Service Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 items-stretch">
+              <article class="bg-surface rounded-xl border border-outline-variant p-5 shadow-sm hover:shadow-md transition-all flex flex-col justify-between gap-4 h-full border-t-4 border-t-primary">
+                <div class="flex flex-col gap-2.5">
+                  <div class="w-12 h-12 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center">
+                    <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">inventory_2</span>
+                  </div>
+                  <h2 class="font-headline text-title-lg text-on-surface font-bold">DONATE ITEMS</h2>
+                  <p class="font-body text-body-sm text-on-surface-muted text-pretty">
+                    Have clothes, groceries, books, blankets, toys, or other essential items to donate? Schedule a doorstep pickup and let us deliver them to verified charitable organisations.
+                  </p>
+                </div>
+                <a href="./donate-items/DonateItems.html" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-primary text-on-primary hover:bg-primary-hover transition-colors w-full font-label text-label-lg font-semibold shadow-sm">
+                  <span>DONATE ITEMS</span>
+                  <span class="material-symbols-outlined text-title-md" aria-hidden="true">arrow_forward</span>
+                </a>
+              </article>
+
+              <article class="bg-surface rounded-xl border border-outline-variant p-5 shadow-sm hover:shadow-md transition-all flex flex-col justify-between gap-4 h-full border-t-4 border-t-accent">
+                <div class="flex flex-col gap-2.5">
+                  <div class="w-12 h-12 rounded-lg bg-accent-container text-on-accent-container flex items-center justify-center">
+                    <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">restaurant</span>
+                  </div>
+                  <h2 class="font-headline text-title-lg text-on-surface font-bold">FOOD RESCUE</h2>
+                  <p class="font-body text-body-sm text-on-surface-muted text-pretty">
+                    Help prevent food wastage by redirecting eligible cancelled food orders and surplus restaurant food to needy people with strict safety verification.
+                  </p>
+                </div>
+                <a href="./food-rescue/FoodRescue.html" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-accent text-on-accent hover:opacity-90 transition-opacity w-full font-label text-label-lg font-semibold shadow-sm">
+                  <span>RESCUE FOOD</span>
+                  <span class="material-symbols-outlined text-title-md" aria-hidden="true">arrow_forward</span>
+                </a>
+              </article>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 flex flex-col gap-4">
+            <div class="relative rounded-2xl overflow-hidden border border-outline-variant shadow-lg bg-surface group">
+              <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=1200&q=80" alt="Indian volunteers organizing essential donation boxes in a bright community center" class="w-full h-80 lg:h-[420px] object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="p-5 bg-surface border-t border-outline-variant flex flex-wrap items-center justify-between gap-4">
+                <div>
+                  <p class="font-label text-label-sm text-primary-hover font-bold tracking-wider">DON'T WASTE FOOD. GIVE EVERY MEAL A PURPOSE.</p>
+                  <p class="font-body text-body-sm text-on-surface-muted">Illustrative impact across Chennai, Bengaluru &amp; Mumbai</p>
+                </div>
+                <a href="./proof-of-donation/ProofOfDonation.html" class="inline-flex items-center gap-1.5 font-label text-label-md text-primary-hover hover:underline font-semibold">
+                  <span>View Live Proof</span>
+                  <span class="material-symbols-outlined text-body-lg" aria-hidden="true">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact Metrics Strip -->
+    <section class="bg-primary text-on-primary py-10 shadow-inner">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
+          <h2 class="font-headline text-headline-sm font-bold">Our Mission &amp; Community Impact</h2>
+          <span class="font-body text-body-sm text-primary-container">Illustrative platform metrics · Updated daily</span>
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-primary-hover/70 rounded-xl p-5 border border-on-primary/15 shadow-sm hover:bg-primary-hover transition-colors">
+            <p class="font-display text-headline-md font-bold tabular-nums">48,920+</p>
+            <p class="font-body text-body-md opacity-90 mt-1">Essential Items Donated</p>
+          </div>
+          <div class="bg-primary-hover/70 rounded-xl p-5 border border-on-primary/15 shadow-sm hover:bg-primary-hover transition-colors">
+            <p class="font-display text-headline-md font-bold tabular-nums">1,12,450</p>
+            <p class="font-body text-body-md opacity-90 mt-1">Surplus Meals Rescued</p>
+          </div>
+          <div class="bg-primary-hover/70 rounded-xl p-5 border border-on-primary/15 shadow-sm hover:bg-primary-hover transition-colors">
+            <p class="font-display text-headline-md font-bold tabular-nums">184</p>
+            <p class="font-body text-body-md opacity-90 mt-1">Verified Ashrams &amp; NGOs</p>
+          </div>
+          <div class="bg-primary-hover/70 rounded-xl p-5 border border-on-primary/15 shadow-sm hover:bg-primary-hover transition-colors">
+            <p class="font-display text-headline-md font-bold tabular-nums">99.4%</p>
+            <p class="font-body text-body-md opacity-90 mt-1">Verified Photo Proof Rate</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How Our Platform Works -->
+    <section id="how-it-works" class="py-16 bg-surface">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-10">
+          <h2 class="font-headline text-headline-lg-mobile lg:text-headline-lg text-on-surface font-bold mb-3">How Our Platform Works</h2>
+          <p class="font-body text-body-lg text-on-surface-muted">
+            Every donation follows a transparent, OTP-verified chain from your doorstep or restaurant kitchen to a verified community organisation.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+          <div class="bg-surface-secondary rounded-xl p-6 border border-outline-variant flex flex-col gap-3 h-full hover:border-primary transition-colors">
+            <div class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-sm">
+              <span class="material-symbols-outlined text-title-lg" aria-hidden="true">edit_calendar</span>
+            </div>
+            <h3 class="font-headline text-title-lg text-on-surface font-bold">1. Schedule or List</h3>
+            <p class="font-body text-body-md text-on-surface-muted">Add essential items from home or list eligible surplus restaurant meals with safety details.</p>
+          </div>
+          <div class="bg-surface-secondary rounded-xl p-6 border border-outline-variant flex flex-col gap-3 h-full hover:border-primary transition-colors">
+            <div class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-sm">
+              <span class="material-symbols-outlined text-title-lg" aria-hidden="true">health_and_safety</span>
+            </div>
+            <h3 class="font-headline text-title-lg text-on-surface font-bold">2. Safety &amp; NGO Match</h3>
+            <p class="font-body text-body-md text-on-surface-muted">Food passes temperature and packaging checks; items match with nearby verified ashrams.</p>
+          </div>
+          <div class="bg-surface-secondary rounded-xl p-6 border border-outline-variant flex flex-col gap-3 h-full hover:border-primary transition-colors">
+            <div class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-sm">
+              <span class="material-symbols-outlined text-title-lg" aria-hidden="true">local_shipping</span>
+            </div>
+            <h3 class="font-headline text-title-lg text-on-surface font-bold">3. OTP Doorstep Pickup</h3>
+            <p class="font-body text-body-md text-on-surface-muted">A trained delivery partner collects your donation with live tracking and OTP confirmation.</p>
+          </div>
+          <div class="bg-surface-secondary rounded-xl p-6 border border-outline-variant flex flex-col gap-3 h-full hover:border-accent transition-colors">
+            <div class="w-12 h-12 rounded-full bg-accent text-on-accent flex items-center justify-center shadow-sm">
+              <span class="material-symbols-outlined text-title-lg" aria-hidden="true">photo_camera</span>
+            </div>
+            <h3 class="font-headline text-title-lg text-on-surface font-bold">4. Verified Proof</h3>
+            <p class="font-body text-body-md text-on-surface-muted">Receive before/after photos, receiver confirmation, and a downloadable digital certificate.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Donation Categories -->
+    <section class="py-16 bg-surface-secondary border-y border-outline-variant">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+          <div>
+            <h2 class="font-headline text-headline-lg-mobile lg:text-headline-lg text-on-surface font-bold mb-2">Donation Categories</h2>
+            <p class="font-body text-body-lg text-on-surface-muted">Select a category to schedule a doorstep pickup for verified organisations.</p>
+          </div>
+          <a href="./donate-items/DonateItems.html" class="inline-flex items-center gap-1.5 font-label text-label-lg text-primary-hover hover:underline font-semibold">
+            <span>Start Item Donation</span>
+            <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
+          <a href="./donate-items/DonateItems.html?cat=food" class="bg-surface rounded-xl border border-outline-variant p-5 hover:border-primary hover:shadow-md transition-all flex items-center gap-4 group">
+            <div class="w-12 h-12 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">grocery</span>
+            </div>
+            <div>
+              <h3 class="font-headline text-title-md text-on-surface font-semibold">Food and Groceries</h3>
+              <p class="font-body text-body-sm text-on-surface-muted">Rice, lentils, cooking oil &amp; dry rations</p>
+            </div>
+          </a>
+          <a href="./donate-items/DonateItems.html?cat=clothes" class="bg-surface rounded-xl border border-outline-variant p-5 hover:border-primary hover:shadow-md transition-all flex items-center gap-4 group">
+            <div class="w-12 h-12 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">checkroom</span>
+            </div>
+            <div>
+              <h3 class="font-headline text-title-md text-on-surface font-semibold">Clothes</h3>
+              <p class="font-body text-body-sm text-on-surface-muted">Clean seasonal wear for children &amp; elders</p>
+            </div>
+          </a>
+          <a href="./donate-items/DonateItems.html?cat=books" class="bg-surface rounded-xl border border-outline-variant p-5 hover:border-primary hover:shadow-md transition-all flex items-center gap-4 group">
+            <div class="w-12 h-12 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">menu_book</span>
+            </div>
+            <div>
+              <h3 class="font-headline text-title-md text-on-surface font-semibold">Books and Stationery</h3>
+              <p class="font-body text-body-sm text-on-surface-muted">Textbooks, notebooks, pens &amp; school bags</p>
+            </div>
+          </a>
+          <a href="./donate-items/DonateItems.html?cat=toys" class="bg-surface rounded-xl border border-outline-variant p-5 hover:border-accent hover:shadow-md transition-all flex items-center gap-4 group">
+            <div class="w-12 h-12 rounded-lg bg-accent-container text-on-accent-container flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">toys</span>
+            </div>
+            <div>
+              <h3 class="font-headline text-title-md text-on-surface font-semibold">Toys</h3>
+              <p class="font-body text-body-sm text-on-surface-muted">Board games, puzzles &amp; sports gear</p>
+            </div>
+          </a>
+          <a href="./donate-items/DonateItems.html?cat=blankets" class="bg-surface rounded-xl border border-outline-variant p-5 hover:border-accent hover:shadow-md transition-all flex items-center gap-4 group">
+            <div class="w-12 h-12 rounded-lg bg-accent-container text-on-accent-container flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">bed</span>
+            </div>
+            <div>
+              <h3 class="font-headline text-title-md text-on-surface font-semibold">Blankets and Bedsheets</h3>
+              <p class="font-body text-body-sm text-on-surface-muted">Warm quilts, cotton sheets &amp; mats</p>
+            </div>
+          </a>
+          <a href="./donate-items/DonateItems.html?cat=hygiene" class="bg-surface rounded-xl border border-outline-variant p-5 hover:border-accent hover:shadow-md transition-all flex items-center gap-4 group">
+            <div class="w-12 h-12 rounded-lg bg-accent-container text-on-accent-container flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">soap</span>
+            </div>
+            <div>
+              <h3 class="font-headline text-title-md text-on-surface font-semibold">Hygiene Products</h3>
+              <p class="font-body text-body-sm text-on-surface-muted">Sealed soaps, sanitizers &amp; dignity kits</p>
+            </div>
+          </a>
+          <a href="./donate-items/DonateItems.html?cat=furniture" class="bg-surface rounded-xl border border-outline-variant p-5 hover:border-info hover:shadow-md transition-all flex items-center gap-4 group">
+            <div class="w-12 h-12 rounded-lg bg-info-container text-on-info-container flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">chair</span>
+            </div>
+            <div>
+              <h3 class="font-headline text-title-md text-on-surface font-semibold">Furniture</h3>
+              <p class="font-body text-body-sm text-on-surface-muted">Study desks, chairs &amp; storage racks</p>
+            </div>
+          </a>
+          <a href="./donate-items/DonateItems.html?cat=edu" class="bg-surface rounded-xl border border-outline-variant p-5 hover:border-info hover:shadow-md transition-all flex items-center gap-4 group">
+            <div class="w-12 h-12 rounded-lg bg-info-container text-on-info-container flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">school</span>
+            </div>
+            <div>
+              <h3 class="font-headline text-title-md text-on-surface font-semibold">Educational Materials</h3>
+              <p class="font-body text-body-sm text-on-surface-muted">Tablets, lab kits &amp; learning charts</p>
+            </div>
+          </a>
+          <a href="./donate-items/DonateItems.html?cat=other" class="bg-surface rounded-xl border border-outline-variant p-5 hover:border-info hover:shadow-md transition-all flex items-center gap-4 group">
+            <div class="w-12 h-12 rounded-lg bg-info-container text-on-info-container flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">category</span>
+            </div>
+            <div>
+              <h3 class="font-headline text-title-md text-on-surface font-semibold">Other Essential Items</h3>
+              <p class="font-body text-body-sm text-on-surface-muted">Utensils, wheelchairs &amp; solar lamps</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Food Rescue Process Highlight -->
+    <section class="py-16 bg-surface">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-6">
+            <img src="https://images.unsplash.com/photo-1541802645635-11f2286a7482?auto=format&fit=crop&w=1000&q=80" alt="Volunteers serving hot meals in stainless steel plates at a community dining hall" class="w-full h-80 lg:h-96 object-cover rounded-2xl border border-outline-variant shadow-md">
+          </div>
+          <div class="lg:col-span-6 flex flex-col gap-5">
+            <span class="inline-flex items-center gap-1.5 self-start px-3.5 py-1.5 rounded-full bg-accent-container text-on-accent-container font-label text-label-sm font-bold">
+              <span class="material-symbols-outlined text-body-md" aria-hidden="true">eco</span>
+              FOOD RESCUE NETWORK
+            </span>
+            <h2 class="font-headline text-headline-lg-mobile lg:text-headline-lg text-on-surface font-bold">
+              Save Food. Share Happiness.
+            </h2>
+            <p class="font-body text-body-lg text-on-surface-muted">
+              Every day, fresh prepared meals from cancelled restaurant orders and surplus catering can go to waste. With explicit restaurant consent and strict temperature and packaging checks, we redirect safe food within 45 minutes.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="p-4 rounded-xl bg-secondary border border-outline-variant">
+                <h3 class="font-headline text-title-md text-on-surface font-bold mb-1">Cancelled Order Rescue</h3>
+                <p class="font-body text-body-sm text-on-surface-muted">Voluntary opt-in by restaurants for untouched, sealed cancelled orders.</p>
+              </div>
+              <div class="p-4 rounded-xl bg-secondary border border-outline-variant">
+                <h3 class="font-headline text-title-md text-on-surface font-bold mb-1">Surplus Food Donation</h3>
+                <p class="font-body text-body-sm text-on-surface-muted">Hotels, bakeries &amp; events list verified safe surplus meals.</p>
+              </div>
+            </div>
+            <div>
+              <a href="./food-rescue/FoodRescue.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-accent text-on-accent hover:opacity-90 transition-opacity font-label text-label-lg font-semibold shadow-sm">
+                <span>List Surplus or Cancelled Food</span>
+                <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Verified Ashrams & Urgent Requirements -->
+    <section class="py-16 bg-secondary border-y border-outline-variant">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+          <div>
+            <h2 class="font-headline text-headline-lg-mobile lg:text-headline-lg text-on-surface font-bold mb-2">Urgent Requirements &amp; Verified Ashrams</h2>
+            <p class="font-body text-body-lg text-on-surface-muted">Support verified orphanages, old-age homes, and community kitchens with immediate needs.</p>
+          </div>
+          <a href="./find-ashram/FindAshram.html" class="inline-flex items-center gap-1.5 font-label text-label-lg text-primary-hover hover:underline font-semibold">
+            <span>Explore All 184 Organisations</span>
+            <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+          <article class="bg-surface rounded-xl border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-full">
+            <div>
+              <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80" alt="Children studying at Anandam Bal Ashram" class="w-full h-48 object-cover">
+              <div class="p-5 flex flex-col gap-3">
+                <span class="inline-flex items-center gap-1 self-start px-2.5 py-1 rounded-full bg-primary-container text-on-primary-container font-label text-label-sm font-semibold">Verified</span>
+                <div>
+                  <h3 class="font-headline text-title-lg text-on-surface font-bold">Anandam Bal Ashram</h3>
+                  <p class="font-body text-body-sm text-on-surface-muted">Adyar, Chennai · Orphanage (85 Children)</p>
+                </div>
+                <p class="font-body text-body-md text-on-surface-muted">Urgent need: 40 school notebooks sets, 25 cotton bedsheets, and 30 kg rice.</p>
+              </div>
+            </div>
+            <div class="px-5 pb-5 pt-3 border-t border-outline-variant flex items-center justify-between gap-3">
+              <a href="./find-ashram/FindAshram.html?ngo=Anandam+Bal+Ashram" class="font-label text-label-md text-primary-hover hover:underline font-semibold">View Profile</a>
+              <a href="./donate-items/DonateItems.html?ngo=Anandam+Bal+Ashram" class="px-4 py-2 rounded-full bg-primary text-on-primary font-label text-label-md font-semibold hover:bg-primary-hover transition-colors shadow-sm">Fulfill Need</a>
+            </div>
+          </article>
+
+          <article class="bg-surface rounded-xl border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-full">
+            <div>
+              <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80" alt="Senior residents at Shanti Niketan Old-Age Home" class="w-full h-48 object-cover">
+              <div class="p-5 flex flex-col gap-3">
+                <span class="inline-flex items-center gap-1 self-start px-2.5 py-1 rounded-full bg-primary-container text-on-primary-container font-label text-label-sm font-semibold">Verified</span>
+                <div>
+                  <h3 class="font-headline text-title-lg text-on-surface font-bold">Shanti Niketan Elders</h3>
+                  <p class="font-body text-body-sm text-on-surface-muted">Indiranagar, Bengaluru · 62 Elders</p>
+                </div>
+                <p class="font-body text-body-md text-on-surface-muted">Urgent need: 50 warm blankets, adult hygiene kits, and evening dinner meals.</p>
+              </div>
+            </div>
+            <div class="px-5 pb-5 pt-3 border-t border-outline-variant flex items-center justify-between gap-3">
+              <a href="./find-ashram/FindAshram.html?ngo=Shanti+Niketan+Elders" class="font-label text-label-md text-primary-hover hover:underline font-semibold">View Profile</a>
+              <a href="./donate-items/DonateItems.html?ngo=Shanti+Niketan+Elders" class="px-4 py-2 rounded-full bg-primary text-on-primary font-label text-label-md font-semibold hover:bg-primary-hover transition-colors shadow-sm">Fulfill Need</a>
+            </div>
+          </article>
+
+          <article class="bg-surface rounded-xl border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-full">
+            <div>
+              <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" alt="Sealed surplus vegetarian meal containers ready for rescue" class="w-full h-48 object-cover">
+              <div class="p-5 flex flex-col gap-3">
+                <span class="inline-flex items-center gap-1 self-start px-2.5 py-1 rounded-full bg-accent-container text-on-accent-container font-label text-label-sm font-semibold">Food Rescue</span>
+                <div>
+                  <h3 class="font-headline text-title-lg text-on-surface font-bold">Karuna Kitchen</h3>
+                  <p class="font-body text-body-sm text-on-surface-muted">T. Nagar, Chennai · 220 Meals/Day</p>
+                </div>
+                <p class="font-body text-body-md text-on-surface-muted">Accepting safe vegetarian lunch &amp; dinner surplus meals until 9:30 PM daily.</p>
+              </div>
+            </div>
+            <div class="px-5 pb-5 pt-3 border-t border-outline-variant flex items-center justify-between gap-3">
+              <a href="./find-ashram/FindAshram.html?ngo=Karuna+Kitchen" class="font-label text-label-md text-primary-hover hover:underline font-semibold">View Profile</a>
+              <a href="./food-rescue/FoodRescue.html?ngo=Karuna+Kitchen" class="px-4 py-2 rounded-full bg-accent text-on-accent font-label text-label-md font-semibold hover:opacity-90 transition-opacity shadow-sm">Send Meals</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Restaurant Partners & Testimonials & Become a Volunteer -->
+    <section class="py-16 bg-surface">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-14">
+        <div class="bg-surface-secondary rounded-2xl p-8 border border-outline-variant flex flex-col lg:flex-row items-center justify-between gap-6 shadow-sm">
+          <div class="max-w-xl">
+            <h2 class="font-headline text-headline-md text-on-surface font-bold mb-2">Trusted by 95+ Restaurant &amp; Catering Partners</h2>
+            <p class="font-body text-body-md text-on-surface-muted">Saravana Bhavan, Dakshin Kitchen, A2B Catering, and local bakeries partner with SevaSetu to safely redirect surplus meals.</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-3">
+            <span class="px-4 py-2 rounded-full bg-surface border border-outline-variant font-label text-label-md text-on-surface font-semibold shadow-sm">Dakshin Kitchen</span>
+            <span class="px-4 py-2 rounded-full bg-surface border border-outline-variant font-label text-label-md text-on-surface font-semibold shadow-sm">Madras Spice Co.</span>
+            <span class="px-4 py-2 rounded-full bg-surface border border-outline-variant font-label text-label-md text-on-surface font-semibold shadow-sm">Annapoorna Caterers</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          <div class="lg:col-span-7 bg-secondary rounded-2xl p-8 border border-outline-variant flex flex-col justify-between gap-4 shadow-sm">
+            <div class="flex items-center gap-1 text-accent">
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">star</span>
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;" aria-hidden="true">star</span>
+            </div>
+            <blockquote class="font-body text-body-lg text-on-surface text-pretty italic">
+              "Receiving the delivery photo and digital receipt from Anandam Bal Ashram within 3 hours of our doorstep pickup gave our family complete peace of mind. We now donate groceries every month."
+            </blockquote>
+            <div>
+              <p class="font-label text-label-lg text-on-surface font-bold">Priya Venkatesh</p>
+              <p class="font-body text-body-sm text-on-surface-muted">Monthly Donor · Mylapore, Chennai</p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 bg-primary text-on-primary rounded-2xl p-8 flex flex-col justify-between gap-5 shadow-sm">
+            <div>
+              <h2 class="font-headline text-headline-md font-bold mb-2">Become a Volunteer or Delivery Partner</h2>
+              <p class="font-body text-body-md text-primary-container">Join our verified weekend collection drives or help transport rescued meals safely in your neighbourhood.</p>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <button type="button" onclick="document.getElementById('authModal').classList.remove('hidden')" class="px-5 py-2.5 rounded-full bg-accent text-on-accent font-label text-label-lg font-semibold hover:opacity-90 transition-opacity shadow-sm">Join as Volunteer</button>
+              <a href="./proof-of-donation/ProofOfDonation.html" class="px-5 py-2.5 rounded-full bg-primary-hover text-on-primary border border-on-primary/30 font-label text-label-lg font-semibold hover:bg-surface hover:text-primary-hover transition-colors shadow-sm">See Delivery Proof</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer -->
+  <footer id="footer-contact" class="bg-on-surface text-surface pt-14 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-10 border-b border-surface/15">
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-accent text-headline-md" aria-hidden="true">volunteer_activism</span>
+            <span class="font-headline text-title-lg font-bold">SevaSetu</span>
+          </div>
+          <p class="font-body text-body-sm text-surface/80 text-balance">
+            Your Unused Items. Our Responsible Delivery. A Better Tomorrow. Connecting donors, restaurants, and verified NGOs.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="font-headline text-title-md font-bold mb-3">Platform</h3>
+          <ul class="flex flex-col gap-2 font-body text-body-sm text-surface/80">
+            <li><a href="./donate-items/DonateItems.html" class="hover:text-accent transition-colors">Donate Essential Items</a></li>
+            <li><a href="./food-rescue/FoodRescue.html" class="hover:text-accent transition-colors">Food Rescue &amp; Safety</a></li>
+            <li><a href="./find-ashram/FindAshram.html" class="hover:text-accent transition-colors">Find an Ashram / NGO</a></li>
+            <li><a href="./proof-of-donation/ProofOfDonation.html" class="hover:text-accent transition-colors">Live Tracking &amp; Proof</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-headline text-title-md font-bold mb-3">Partner Portals</h3>
+          <ul class="flex flex-col gap-2 font-body text-body-sm text-surface/80">
+            <li><a href="#login-modal" onclick="document.getElementById('authModal').classList.remove('hidden')" class="hover:text-accent transition-colors">Customer / Donor Portal</a></li>
+            <li><a href="./food-rescue/FoodRescue.html" class="hover:text-accent transition-colors">Restaurant Partner Portal</a></li>
+            <li><a href="./find-ashram/FindAshram.html" class="hover:text-accent transition-colors">NGO / Ashram Dashboard</a></li>
+            <li><a href="./proof-of-donation/ProofOfDonation.html" class="hover:text-accent transition-colors">Delivery Partner &amp; Admin</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-headline text-title-md font-bold mb-3">Support &amp; WhatsApp</h3>
+          <p class="font-body text-body-sm text-surface/80 mb-2">Helpline: +91 44 2815 4900</p>
+          <p class="font-body text-body-sm text-surface/80 mb-3">care@sevasetu.org.in</p>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary text-on-primary font-label text-label-sm font-semibold shadow-sm">
+            <span class="material-symbols-outlined text-body-md" aria-hidden="true">chat</span>
+            WhatsApp Updates Enabled
+          </span>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-body text-body-sm text-surface/70">
+        <p>© 2026 SevaSetu Social Impact Network. Demo frontend prototype with illustrative data.</p>
+        <p>English &amp; தமிழ் Supported</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Login / Role Selection Modal -->
+  <div id="authModal" class="hidden fixed inset-0 z-50 bg-on-surface/50 backdrop-blur-sm flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <div class="bg-surface rounded-2xl max-w-md w-full p-6 border border-outline-variant shadow-2xl flex flex-col gap-5">
+      <div class="flex items-center justify-between">
+        <h2 id="authTitle" class="font-headline text-headline-sm text-on-surface font-bold">Login / Register</h2>
+        <button type="button" onclick="document.getElementById('authModal').classList.add('hidden')" class="w-9 h-9 rounded-full bg-surface-secondary hover:bg-surface-container flex items-center justify-center text-on-surface transition-colors" aria-label="Close">
+          <span class="material-symbols-outlined" aria-hidden="true">close</span>
+        </button>
+      </div>
+      <form onsubmit="handleLogin(event)" class="flex flex-col gap-4">
+        <label class="flex flex-col gap-1.5">
+          <span class="font-label text-label-md text-on-surface font-semibold">Select Role</span>
+          <select id="modalRoleSelect" class="rounded-lg border border-outline bg-surface px-3 py-2.5 font-body text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary">
+            <option>Customer / Donor</option>
+            <option>Restaurant / Food Provider</option>
+            <option>NGO / Ashram</option>
+            <option>Delivery Partner</option>
+            <option>Administrator</option>
+          </select>
+        </label>
+        <label class="flex flex-col gap-1.5">
+          <span class="font-label text-label-md text-on-surface font-semibold">Mobile Number or Email</span>
+          <input id="modalPhoneInput" type="text" placeholder="+91 98400 12345" value="+91 98400 76543" class="rounded-lg border border-outline bg-surface px-3.5 py-2.5 font-body text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary">
+        </label>
+        <button type="submit" class="w-full py-2.5 rounded-full bg-primary text-on-primary font-label text-label-lg font-semibold hover:bg-primary-hover transition-colors shadow-sm mt-1">Send OTP to Continue</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="./assets/js/api.js"></script>
+  <script src="./assets/js/common.js"></script>
+  <script>
+    // Live Stats Integration from Backend
+    document.addEventListener('DOMContentLoaded', async () => {
+      const stats = await SevaAPI.getStats();
+      if (stats) {
+        const metrics = document.querySelectorAll('.bg-primary-hover\\/70 p.font-display');
+        if (metrics.length >= 4) {
+          if (stats.totalItemsDonated) metrics[0].textContent = Number(stats.totalItemsDonated).toLocaleString() + '+';
+          if (stats.surplusMealsRescued) metrics[1].textContent = Number(stats.surplusMealsRescued).toLocaleString();
+          if (stats.verifiedAshramsCount) metrics[2].textContent = stats.verifiedAshramsCount;
+          if (stats.proofRate) metrics[3].textContent = stats.proofRate + '%';
+        }
+      }
+    });
+  </script>
+</body>
+</html>

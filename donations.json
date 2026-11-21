@@ -1,0 +1,64 @@
+﻿[
+  {
+    "id": "TRK-SEVA-2026-9041",
+    "receiptId": "REC-9041",
+    "donorName": "Priya Venkatesh",
+    "donorPhone": "+91 98400 76543",
+    "category": "Food & Groceries",
+    "items": [
+      { "name": "Sona Masoori Rice & Toor Dal Pack", "qty": "15 kg", "condition": "Brand New / Sealed" },
+      { "name": "Warm Cotton Blankets", "qty": "4 pcs", "condition": "Gently Used (Clean)" }
+    ],
+    "itemCount": 2,
+    "pickupAddress": "Flat 4B, Lotus Enclave, Luz Church Road, Mylapore, Chennai 600004",
+    "ngoName": "Anandam Bal Ashram",
+    "pickupDate": "2026-11-20",
+    "pickupSlot": "Morning (9:00 AM – 12:00 PM)",
+    "otp": 4829,
+    "currentStage": 8,
+    "status": "Donation Successfully Completed",
+    "anonymous": false,
+    "subscription": true,
+    "driver": {
+      "name": "Karthik Sundaram",
+      "vehicle": "TN 09 CK 4421 · Insulated Cargo EV",
+      "rating": "4.96",
+      "phone": "+91 94440 88219"
+    },
+    "timeline": [
+      { "stage": 1, "title": "Request Created", "time": "09:30 AM", "completed": true },
+      { "stage": 2, "title": "Pickup Confirmed", "time": "09:45 AM", "completed": true },
+      { "stage": 3, "title": "Delivery Partner Assigned", "time": "09:52 AM", "completed": true },
+      { "stage": 4, "title": "Items Collected (OTP Verified)", "time": "10:15 AM", "completed": true },
+      { "stage": 5, "title": "On the Way", "time": "10:35 AM", "completed": true },
+      { "stage": 6, "title": "Reached Destination", "time": "11:32 AM", "completed": true },
+      { "stage": 7, "title": "Received by Organisation", "time": "11:38 AM", "completed": true },
+      { "stage": 8, "title": "Donation Successfully Completed", "time": "11:40 AM", "completed": true }
+    ],
+    "proof": {
+      "beforePhoto": "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80",
+      "afterPhoto": "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80",
+      "signatory": "Warden Meena R.",
+      "notes": "Verified handover completed at Anandam Bal Ashram reception."
+    },
+    "createdAt": "2026-11-20T09:30:00.000Z"
+  },
+  {
+    "id": "TRK-SEVA-2026-5425",
+    "receiptId": "REC-5425",
+    "otp": 5425,
+    "currentStage": 1,
+    "status": "Request Created",
+    "createdAt": "2026-11-21T05:19:31.8637417Z",
+"donorName":"Priya Venkatesh","donorPhone":"+91 98400 76543","category":"Food and Groceries","itemCount":2,"pickupAddress":"Flat 4B, Lotus Enclave, Luz Church Road, Mylapore, Chennai 600004","ngoName":"Anandam Bal Ashram","pickupDate":"2026-11-22","pickupSlot":"Morning (9:00 AM – 12:00 PM)","anonymous":false,"subscription":false,"items":[{"name":"dosa","qty":"4","condition":"Brand New / Sealed"}]
+  },
+  {
+    "id": "TRK-SEVA-2026-5935",
+    "receiptId": "REC-5935",
+    "otp": 5935,
+    "currentStage": 1,
+    "status": "Request Created",
+    "createdAt": "2026-11-21T05:20:51.9137566Z",
+"donorName":"Priya Venkatesh","donorPhone":"+91 98400 76543","category":"Food and Groceries","itemCount":2,"pickupAddress":"Flat 4B, Lotus Enclave, Luz Church Road, Mylapore, Chennai 600004","ngoName":"Anandam Bal Ashram","pickupDate":"2026-11-22","pickupSlot":"Morning (9:00 AM – 12:00 PM)","anonymous":false,"subscription":false,"items":[{"name":"Sona Masoori Rice & Toor Dal Pack","qty":"15 kg","condition":"Brand New / Sealed"}]
+  }
+]

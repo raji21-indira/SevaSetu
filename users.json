@@ -1,0 +1,42 @@
+[
+  {
+    "id": "usr-1",
+    "name": "Priya Venkatesh",
+    "phone": "+91 98400 76543",
+    "role": "Customer / Donor",
+    "location": "Mylapore, Chennai",
+    "verified": true
+  },
+  {
+    "id": "usr-2",
+    "name": "Dakshin Kitchen (Partner)",
+    "phone": "+91 98401 22334",
+    "role": "Restaurant / Food Provider",
+    "location": "Adyar, Chennai",
+    "verified": true
+  },
+  {
+    "id": "usr-3",
+    "name": "Anandam Bal Ashram",
+    "phone": "+91 44 2441 8890",
+    "role": "NGO / Ashram",
+    "location": "Adyar, Chennai",
+    "verified": true
+  },
+  {
+    "id": "usr-4",
+    "name": "Karthik Sundaram",
+    "phone": "+91 94440 88219",
+    "role": "Delivery Partner",
+    "location": "Chennai South Zone",
+    "verified": true
+  },
+  {
+    "id": "usr-5",
+    "name": "SevaSetu System Administrator",
+    "phone": "+91 44 2815 4900",
+    "role": "Administrator",
+    "location": "Chennai HQ",
+    "verified": true
+  }
+]

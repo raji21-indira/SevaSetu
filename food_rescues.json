@@ -1,0 +1,23 @@
+[
+  {
+    "id": "RESC-2026-7720",
+    "orderId": "ORD-CHN-88412",
+    "providerName": "Dakshin Kitchen — Adyar",
+    "foodItem": "Vegetable Pulao, Dal Tadka & Chapati Boxes",
+    "category": "Cooked Hot Meals",
+    "portions": 35,
+    "diet": "Vegetarian",
+    "prepTime": "18:30",
+    "expiryTime": "21:30",
+    "packagingStatus": "sealed",
+    "storageCondition": "hot",
+    "allergens": "Contains Dairy (Ghee/Paneer) and Cashews.",
+    "pickupAddress": "24, Sardar Patel Road, Adyar, Chennai 600020",
+    "phone": "+91 98401 22334",
+    "targetKitchen": "Karuna Kitchen",
+    "safetyStatus": "Approved for Rescue",
+    "status": "Delivered",
+    "driverAssigned": "Karthik Sundaram (EV Cargo)",
+    "deliveredAt": "2026-11-20T19:42:00.000Z"
+  }
+]

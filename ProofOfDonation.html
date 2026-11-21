@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Tracking &amp; Proof of Donation — SevaSetu</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    globalThis.tailwind = globalThis.tailwind || {};
+    globalThis.tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'primary': '#16845B',
+            'on-primary': '#FFFFFF',
+            'primary-hover': '#006C48',
+            'primary-container': '#BEFFDB',
+            'on-primary-container': '#002113',
+            'primary-tint': '#F4FFF6',
+            'secondary': '#FFF9F0',
+            'on-secondary': '#252A29',
+            'accent': '#F4B942',
+            'on-accent': '#271900',
+            'accent-container': '#FFEED8',
+            'on-accent-container': '#412D00',
+            'surface': '#FFFFFF',
+            'surface-secondary': '#F5F7F6',
+            'surface-container': '#EDF2F0',
+            'on-surface': '#252A29',
+            'on-surface-muted': '#5A5F5E',
+            'outline': '#C3C7C6',
+            'outline-variant': '#DFE3E1',
+            'success': '#16845B',
+            'on-success': '#FFFFFF',
+            'success-container': '#BEFFDB',
+            'on-success-container': '#002113',
+            'warning': '#9C6F00',
+            'on-warning': '#060606',
+            'warning-container': '#FFEED8',
+            'on-warning-container': '#271900',
+            'error': '#BA1A1A',
+            'on-error': '#FFFFFF',
+            'error-container': '#FFDAD6',
+            'on-error-container': '#410002',
+            'info': '#006398',
+            'on-info': '#FFFFFF',
+            'info-container': '#E7F2FF',
+            'on-info-container': '#001D31',
+          },
+          borderRadius: {
+            'sm': '6px',
+            'DEFAULT': '10px',
+            'md': '12px',
+            'lg': '16px',
+            'xl': '24px',
+            'full': '9999px',
+          },
+          fontFamily: {
+            'display': ['"Poppins"', 'sans-serif'],
+            'headline': ['"Poppins"', 'sans-serif'],
+            'title': ['"Inter"', 'sans-serif'],
+            'body': ['"Inter"', 'sans-serif'],
+            'label': ['"Inter"', 'sans-serif'],
+          },
+          fontSize: {
+            'display-lg': ['48px', { lineHeight: '56px', letterSpacing: '-0.5px', fontWeight: '700' }],
+            'display-lg-mobile': ['32px', { lineHeight: '40px', letterSpacing: '-0.25px', fontWeight: '700' }],
+            'headline-lg': ['36px', { lineHeight: '44px', letterSpacing: '-0.25px', fontWeight: '700' }],
+            'headline-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+            'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '0px', fontWeight: '600' }],
+            'headline-sm': ['20px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '600' }],
+            'title-lg': ['18px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '600' }],
+            'title-md': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '600' }],
+            'body-lg': ['16px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '400' }],
+            'body-md': ['14px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+            'body-sm': ['12px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+            'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+            'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '600' }],
+            'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.3px', fontWeight: '600' }],
+          }
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; vertical-align: middle; }
+  </style>
+</head>
+<body class="bg-surface-secondary text-on-surface font-body min-h-screen flex flex-col">
+
+  <!-- Shared App Header -->
+  <header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-outline-variant shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between gap-4 py-3.5">
+        <a href="../home/Home.html" class="flex items-center gap-2.5 shrink-0 hover:opacity-90 transition-opacity">
+          <div class="w-10 h-10 rounded-md bg-primary text-on-primary flex items-center justify-center shadow-sm">
+            <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">volunteer_activism</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-headline text-title-lg text-on-surface leading-none font-bold">SevaSetu</span>
+            <span class="font-body text-body-sm text-primary-hover font-medium">Donate &amp; Rescue</span>
+          </div>
+        </a>
+
+        <nav aria-label="Main navigation" class="hidden xl:flex items-center gap-5">
+          <a href="../home/Home.html" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">Home</a>
+          <a href="../donate-items/DonateItems.html" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">Donate Items</a>
+          <a href="../food-rescue/FoodRescue.html" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">Food Rescue</a>
+          <a href="../find-ashram/FindAshram.html" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">Find an Ashram</a>
+          <a href="../home/Home.html#how-it-works" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">How It Works</a>
+          <a href="ProofOfDonation.html" class="font-label text-label-lg text-primary-hover border-b-2 border-primary pb-0.5 whitespace-nowrap font-semibold">Track &amp; Proof</a>
+        </nav>
+
+        <div class="flex items-center gap-2.5 shrink-0">
+          <button type="button" onclick="toggleLang()" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-secondary text-on-surface border border-outline-variant hover:border-primary transition-colors" aria-label="Switch language">
+            <span class="material-symbols-outlined text-body-lg text-primary-hover" aria-hidden="true">translate</span>
+            <span id="langLabel" class="font-label text-label-sm font-semibold">EN / தமிழ்</span>
+          </button>
+
+          <div class="relative">
+            <button onclick="toggleNotificationDropdown()" type="button" aria-label="Notifications" class="relative inline-flex items-center justify-center w-10 h-10 rounded-full bg-surface-secondary text-on-surface hover:bg-surface-container transition-colors">
+              <span class="material-symbols-outlined text-title-lg" aria-hidden="true">notifications</span>
+              <span data-component-id="badge-numeric" aria-hidden="true" class="absolute -top-0.5 -right-0.5 inline-flex items-center justify-center min-w-4 h-4 px-1 rounded-full bg-error text-on-error tabular-nums text-label-sm font-bold">
+                3
+              </span>
+            </button>
+          </div>
+
+          <button type="button" onclick="document.getElementById('authModal').classList.remove('hidden')" aria-label="Login or Register" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-full bg-surface-secondary text-on-surface hover:bg-surface-container transition-colors border border-outline-variant">
+            <span class="material-symbols-outlined text-title-lg text-primary-hover" aria-hidden="true">account_circle</span>
+            <span class="hidden md:inline font-label text-label-md font-semibold">Priya</span>
+          </button>
+
+          <a href="../donate-items/DonateItems.html" class="hidden sm:inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full bg-primary text-on-primary hover:bg-primary-hover transition-colors whitespace-nowrap font-label text-label-md font-semibold shadow-sm">
+            Donate Now
+          </a>
+
+          <a href="../food-rescue/FoodRescue.html" class="hidden sm:inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full bg-accent text-on-accent hover:opacity-90 transition-opacity whitespace-nowrap font-label text-label-md font-semibold shadow-sm">
+            Rescue Food
+          </a>
+
+          <button type="button" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="xl:hidden inline-flex items-center justify-center w-10 h-10 rounded-full bg-surface-secondary text-on-surface" aria-label="Open menu">
+            <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobileMenu" class="hidden xl:hidden pb-4 border-t border-outline-variant pt-3">
+        <div class="grid grid-cols-2 gap-2">
+          <a href="../home/Home.html" class="px-3 py-2 rounded-md hover:bg-surface-secondary font-label text-label-md">Home</a>
+          <a href="../donate-items/DonateItems.html" class="px-3 py-2 rounded-md hover:bg-surface-secondary font-label text-label-md">Donate Items</a>
+          <a href="../food-rescue/FoodRescue.html" class="px-3 py-2 rounded-md hover:bg-surface-secondary font-label text-label-md">Food Rescue</a>
+          <a href="../find-ashram/FindAshram.html" class="px-3 py-2 rounded-md hover:bg-surface-secondary font-label text-label-md">Find an Ashram</a>
+          <a href="ProofOfDonation.html" class="px-3 py-2 rounded-md bg-primary-tint text-primary-hover font-label text-label-md font-semibold">Track &amp; Proof</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span id="headerTrackingId" class="font-label text-label-md text-primary-hover font-bold tracking-wide">TRACKING ID: TRK-SEVA-2026-9041</span>
+            <button type="button" onclick="changeTrackingId()" class="text-xs text-on-surface-muted hover:text-primary underline">Change ID</button>
+          </div>
+          <h1 class="font-headline text-headline-lg-mobile lg:text-headline-lg text-on-surface font-bold mt-1">Transparency &amp; Verified Proof</h1>
+        </div>
+        <div class="inline-flex p-1.5 rounded-full bg-surface border border-outline-variant shadow-sm self-start">
+          <button type="button" id="tabProofBtn" onclick="switchTab('proof')" class="px-5 py-2 rounded-full bg-primary text-on-primary font-label text-label-md font-semibold transition-all">Proof of Donation</button>
+          <button type="button" id="tabTrackBtn" onclick="switchTab('track')" class="px-5 py-2 rounded-full text-on-surface-muted hover:text-on-surface font-label text-label-md font-semibold transition-all">Live Tracking &amp; OTP</button>
+        </div>
+      </div>
+
+      <!-- TAB 1: PROOF OF DONATION -->
+      <section id="proofPanel" class="flex flex-col gap-8">
+        <div class="bg-secondary rounded-2xl border border-outline-variant p-6 sm:p-8 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-sm">
+          <div class="flex flex-col gap-3 max-w-2xl">
+            <span id="proofStatusBadge" class="inline-flex items-center gap-1.5 self-start px-3.5 py-1.5 rounded-full bg-success-container text-on-success-container font-label text-label-sm font-bold shadow-sm">
+              <span class="material-symbols-outlined text-body-md" aria-hidden="true">verified</span>
+              <span id="proofStatusBadgeText">DONATION SUCCESSFULLY COMPLETED</span>
+            </span>
+            <h2 id="proofHeadline" class="font-headline text-headline-lg-mobile lg:text-headline-lg text-on-surface font-bold">Your Kindness Has Reached Its Destination!</h2>
+            <p id="proofDescription" class="font-body text-body-lg text-on-surface-muted">
+              Thank you, Priya Venkatesh. Your essential items and rescued meals were safely handed over to Anandam Bal Ashram with verified receiver confirmation and photo proof.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-3 shrink-0">
+            <button type="button" onclick="openPrintReceiptModal()" class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-primary text-on-primary font-label text-label-lg font-semibold hover:bg-primary-hover transition-colors shadow-sm">
+              <span class="material-symbols-outlined" aria-hidden="true">download</span>
+              Download Receipt
+            </button>
+            <button type="button" onclick="openWhatsAppShare()" class="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-surface text-primary-hover border border-primary font-label text-label-lg font-semibold hover:bg-primary-tint transition-colors shadow-sm">
+              <span class="material-symbols-outlined" aria-hidden="true">share</span>
+              Share Impact
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-7 flex flex-col gap-6">
+            <!-- Photographs with zoom modal -->
+            <div class="bg-surface rounded-2xl border border-outline-variant p-6 shadow-sm flex flex-col gap-4">
+              <div class="flex items-center justify-between">
+                <h3 class="font-headline text-title-lg text-on-surface font-bold">Before &amp; After Photographs</h3>
+                <span class="text-xs text-on-surface-muted font-medium">Click photo to enlarge</span>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <figure class="flex flex-col gap-2 cursor-pointer group" onclick="zoomImage(document.getElementById('proofBeforeImg').src, 'Doorstep Pickup (OTP Verified)')">
+                  <div class="overflow-hidden rounded-xl border border-outline-variant">
+                    <img id="proofBeforeImg" src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80" alt="Collected donation boxes at pickup" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                  </div>
+                  <figcaption class="font-body text-body-sm text-on-surface-muted flex items-center justify-between">
+                    <span id="proofBeforeTime">Pickup · 20 Nov, 10:15 AM</span>
+                    <span id="proofBeforeOtp" class="text-primary font-semibold text-xs">OTP #4829</span>
+                  </figcaption>
+                </figure>
+                <figure class="flex flex-col gap-2 cursor-pointer group" onclick="zoomImage(document.getElementById('proofAfterImg').src, 'Delivered at destination with verified confirmation')">
+                  <div class="overflow-hidden rounded-xl border border-outline-variant">
+                    <img id="proofAfterImg" src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80" alt="Delivered items received at organisation" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                  </div>
+                  <figcaption class="font-body text-body-sm text-on-surface-muted flex items-center justify-between">
+                    <span id="proofAfterTime">Delivered · 20 Nov, 11:40 AM</span>
+                    <span id="proofAfterSign" class="text-primary font-semibold text-xs">Signed Meena R.</span>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="p-3.5 rounded-xl bg-info-container text-on-info-container flex items-center gap-2.5">
+                <span class="material-symbols-outlined text-body-lg text-info shrink-0" aria-hidden="true">privacy_tip</span>
+                <p class="font-body text-body-sm">
+                  Beneficiary Privacy Protected: All media follows our strict dignity protocols with consent from orphanage administrators.
+                </p>
+              </div>
+            </div>
+
+            <!-- Handover Video Player -->
+            <div class="bg-surface rounded-2xl border border-outline-variant p-6 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div class="flex items-center gap-4">
+                <button type="button" onclick="playHandoverVideo()" class="w-14 h-14 rounded-full bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors flex items-center justify-center shrink-0 shadow-sm" aria-label="Play Video">
+                  <span id="playIcon" class="material-symbols-outlined text-headline-sm" aria-hidden="true">play_arrow</span>
+                </button>
+                <div>
+                  <h3 class="font-headline text-title-md text-on-surface font-bold">Handover Confirmation Video (0:24)</h3>
+                  <p id="proofVideoNote" class="font-body text-body-sm text-on-surface-muted">Recorded by Delivery Partner Karthik S. at reception gate</p>
+                  <p id="videoPlayStatus" class="text-xs text-primary-hover font-semibold mt-1">Ready to play · Audio commentary enabled</p>
+                </div>
+              </div>
+              <button type="button" onclick="playHandoverVideo()" class="px-5 py-2.5 rounded-full bg-surface-secondary border border-outline-variant font-label text-label-md font-semibold hover:border-primary transition-colors shrink-0">
+                Play Clip
+              </button>
+            </div>
+          </div>
+
+          <!-- Digital Receipt Sidebar -->
+          <aside class="lg:col-span-5 bg-surface rounded-2xl border border-outline-variant p-6 shadow-sm flex flex-col gap-4">
+            <div class="flex items-center justify-between border-b border-outline-variant pb-3">
+              <div>
+                <h3 class="font-headline text-title-lg text-on-surface font-bold">Digital Receipt</h3>
+                <p class="text-xs text-on-surface-muted">Section 80G Compliant</p>
+              </div>
+              <span id="sidebarReceiptNo" class="font-label text-label-sm text-primary-hover font-bold tabular-nums bg-primary-tint px-2.5 py-1 rounded-full border border-primary/20">#REC-9041</span>
+            </div>
+
+            <div class="flex flex-col gap-2.5 font-body text-body-sm">
+              <div class="flex justify-between"><span class="text-on-surface-muted">Donation ID:</span><span id="sidebarDonationId" class="font-label text-on-surface font-semibold tabular-nums">DON-2026-9041</span></div>
+              <div class="flex justify-between"><span class="text-on-surface-muted">Donor Name:</span><span id="sidebarDonorName" class="font-label text-on-surface font-semibold">Priya Venkatesh</span></div>
+              <div class="flex justify-between"><span class="text-on-surface-muted">Donated Items:</span><span id="sidebarItems" class="font-label text-on-surface font-semibold">Rice (15 kg), Blankets (4)</span></div>
+              <div class="flex justify-between"><span class="text-on-surface-muted">Receiving Organisation:</span><span id="sidebarOrg" class="font-label text-on-surface font-semibold">Anandam Bal Ashram</span></div>
+              <div class="flex justify-between"><span class="text-on-surface-muted">Pickup Time:</span><span id="sidebarPickupTime" class="font-label text-on-surface tabular-nums">20 Nov, 10:15 AM</span></div>
+              <div class="flex justify-between"><span class="text-on-surface-muted">Delivery Time:</span><span id="sidebarDeliveryTime" class="font-label text-on-surface tabular-nums">20 Nov, 11:40 AM</span></div>
+              <div class="flex justify-between"><span class="text-on-surface-muted">Receiver Confirmation:</span><span id="sidebarSignatory" class="font-label text-primary-hover font-semibold">Signed by Warden Meena R.</span></div>
+            </div>
+
+            <div class="border-t border-outline-variant pt-4 flex flex-col gap-2 font-body text-body-sm">
+              <span class="font-label text-label-sm text-on-accent-container font-bold tracking-wide">LINKED FOOD RESCUE SUMMARY</span>
+              <div class="flex justify-between"><span class="text-on-surface-muted">Restaurant:</span><span id="sidebarRescueRestaurant" class="font-label text-on-surface font-semibold">Dakshin Kitchen</span></div>
+              <div class="flex justify-between"><span class="text-on-surface-muted">Meals Rescued:</span><span id="sidebarRescueMeals" class="font-label text-on-surface font-semibold tabular-nums">35 Hot Veg Meals</span></div>
+              <div class="flex justify-between"><span class="text-on-surface-muted">Delivery Duration:</span><span id="sidebarRescueDuration" class="font-label text-primary-hover font-semibold tabular-nums">37 Minutes (Zero Waste)</span></div>
+            </div>
+
+            <button type="button" onclick="openPrintReceiptModal()" class="w-full py-2.5 rounded-full bg-surface-secondary border border-outline-variant hover:border-primary font-label text-label-md font-semibold text-on-surface transition-colors mt-2 flex items-center justify-center gap-1.5">
+              <span class="material-symbols-outlined text-sm">print</span>
+              <span>View Printable 80G Certificate</span>
+            </button>
+          </aside>
+        </div>
+      </section>
+
+      <!-- TAB 2: LIVE TRACKING & OTP -->
+      <section id="trackPanel" class="hidden flex-col gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-7 bg-surface rounded-2xl border border-outline-variant p-6 sm:p-8 shadow-sm flex flex-col gap-6">
+            <div class="flex items-center justify-between border-b border-outline-variant pb-3">
+              <div>
+                <h2 class="font-headline text-title-lg text-on-surface font-bold">8-Stage Live Donation Timeline</h2>
+                <p class="text-xs text-on-surface-muted mt-0.5">Real-time status synced with IoT cargo lock &amp; driver mobile app</p>
+              </div>
+              <button type="button" onclick="advanceStage()" class="px-3.5 py-1.5 rounded-full bg-primary-container text-on-primary-container font-label text-label-sm font-semibold hover:bg-primary hover:text-on-primary transition-colors">
+                Simulate Next Stage
+              </button>
+            </div>
+
+            <ol id="timelineList" class="flex flex-col gap-5 border-l-2 border-primary pl-5 ml-2 relative">
+              <li class="timeline-step flex items-center justify-between" data-step="1">
+                <div class="flex items-center gap-2">
+                  <span class="w-4 h-4 rounded-full bg-primary -ml-[27px] border-2 border-surface shrink-0"></span>
+                  <span class="font-label text-label-md text-on-surface font-semibold">1. Request Created</span>
+                </div>
+                <span class="font-body text-body-sm text-primary-hover tabular-nums">09:30 AM</span>
+              </li>
+              <li class="timeline-step flex items-center justify-between" data-step="2">
+                <div class="flex items-center gap-2">
+                  <span class="w-4 h-4 rounded-full bg-primary -ml-[27px] border-2 border-surface shrink-0"></span>
+                  <span class="font-label text-label-md text-on-surface font-semibold">2. Pickup Confirmed</span>
+                </div>
+                <span class="font-body text-body-sm text-primary-hover tabular-nums">09:45 AM</span>
+              </li>
+              <li class="timeline-step flex items-center justify-between" data-step="3">
+                <div class="flex items-center gap-2">
+                  <span class="w-4 h-4 rounded-full bg-primary -ml-[27px] border-2 border-surface shrink-0"></span>
+                  <span class="font-label text-label-md text-on-surface font-semibold">3. Delivery Partner Assigned</span>
+                </div>
+                <span class="font-body text-body-sm text-primary-hover tabular-nums">09:52 AM</span>
+              </li>
+              <li class="timeline-step flex items-center justify-between" data-step="4">
+                <div class="flex items-center gap-2">
+                  <span class="w-4 h-4 rounded-full bg-primary -ml-[27px] border-2 border-surface shrink-0"></span>
+                  <span class="font-label text-label-md text-on-surface font-semibold">4. Items / Food Collected (OTP: 4829)</span>
+                </div>
+                <span class="font-body text-body-sm text-primary-hover tabular-nums">10:15 AM</span>
+              </li>
+              <li class="timeline-step flex items-center justify-between" data-step="5">
+                <div class="flex items-center gap-2">
+                  <span class="w-4 h-4 rounded-full bg-primary -ml-[27px] border-2 border-surface shrink-0"></span>
+                  <span class="font-label text-label-md text-on-surface font-semibold">5. On the Way</span>
+                </div>
+                <span class="font-body text-body-sm text-primary-hover tabular-nums">10:35 AM</span>
+              </li>
+              <li class="timeline-step flex items-center justify-between" data-step="6">
+                <div class="flex items-center gap-2">
+                  <span class="w-4 h-4 rounded-full bg-primary -ml-[27px] border-2 border-surface shrink-0"></span>
+                  <span class="font-label text-label-md text-on-surface font-semibold">6. Reached Destination</span>
+                </div>
+                <span class="font-body text-body-sm text-primary-hover tabular-nums">11:32 AM</span>
+              </li>
+              <li class="timeline-step flex items-center justify-between" data-step="7">
+                <div class="flex items-center gap-2">
+                  <span class="w-4 h-4 rounded-full bg-primary -ml-[27px] border-2 border-surface shrink-0"></span>
+                  <span class="font-label text-label-md text-on-surface font-semibold">7. Received by Organisation</span>
+                </div>
+                <span class="font-body text-body-sm text-primary-hover tabular-nums">11:38 AM</span>
+              </li>
+              <li class="timeline-step flex items-center justify-between" data-step="8">
+                <div class="flex items-center gap-2">
+                  <span class="w-4 h-4 rounded-full bg-primary -ml-[27px] border-2 border-surface shrink-0 pulse-active"></span>
+                  <span class="font-label text-label-md text-primary-hover font-bold">8. Donation Successfully Completed</span>
+                </div>
+                <span class="font-label text-label-sm text-primary-hover tabular-nums font-bold">11:40 AM</span>
+              </li>
+            </ol>
+          </div>
+
+          <div class="lg:col-span-5 flex flex-col gap-6">
+            <!-- Driver Card -->
+            <div class="bg-surface rounded-2xl border border-outline-variant p-6 shadow-sm flex items-center gap-4">
+              <img id="driverImg" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Delivery Partner" class="w-16 h-16 rounded-full object-cover border-2 border-primary shrink-0 shadow-sm">
+              <div class="flex flex-col gap-1">
+                <div class="flex items-center gap-2">
+                  <h3 id="driverName" class="font-headline text-title-md text-on-surface font-bold">Karthik Sundaram</h3>
+                  <span id="driverRating" class="px-2 py-0.5 rounded-full bg-primary-container text-on-primary-container text-xs font-semibold">★ 4.96</span>
+                </div>
+                <p id="driverVehicle" class="font-body text-body-sm text-on-surface-muted">TN 09 CK 4421 · Insulated Cargo EV</p>
+                <p class="font-label text-label-sm text-primary-hover font-semibold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm">verified</span>
+                  Doorstep OTP &amp; Delivery Verified
+                </p>
+              </div>
+            </div>
+
+            <!-- Route Map Simulator -->
+            <div class="bg-surface rounded-2xl border border-outline-variant p-6 shadow-sm flex flex-col gap-4">
+              <div class="flex items-center justify-between">
+                <h3 class="font-headline text-title-md text-on-surface font-bold">Live Transit Map</h3>
+                <span id="mapRouteHeader" class="px-2.5 py-0.5 rounded-full bg-primary-container text-on-primary-container font-label text-label-sm font-semibold">Mylapore → Adyar (6.2 km)</span>
+              </div>
+              
+              <!-- Stylized Interactive Canvas Map -->
+              <div class="h-48 rounded-xl bg-surface-secondary border border-outline-variant relative overflow-hidden flex items-center justify-center">
+                <svg class="w-full h-full" viewBox="0 0 400 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Road grid -->
+                  <path d="M0 30 H400 M0 75 H400 M0 120 H400" stroke="#DFE3E1" stroke-width="1" stroke-dasharray="4 4" />
+                  <path d="M50 0 V150 M150 0 V150 M250 0 V150 M350 0 V150" stroke="#DFE3E1" stroke-width="1" stroke-dasharray="4 4" />
+                  <!-- Route path -->
+                  <path d="M 40 75 Q 120 20 200 75 T 360 75" stroke="#16845B" stroke-width="6" stroke-linecap="round" fill="none" opacity="0.8" />
+                  <!-- Pickup point -->
+                  <circle cx="40" cy="75" r="10" fill="#16845B" />
+                  <text id="mapPickupText" x="25" y="105" font-size="11" font-weight="bold" fill="#252A29">Mylapore</text>
+                  <!-- Destination point -->
+                  <circle cx="360" cy="75" r="10" fill="#F4B942" />
+                  <text id="mapDestText" x="330" y="105" font-size="11" font-weight="bold" fill="#252A29">Adyar Ashram</text>
+                  <!-- Moving EV Cargo Van Marker -->
+                  <g class="animate-drive">
+                    <circle cx="100" cy="55" r="12" fill="#BEFFDB" stroke="#16845B" stroke-width="2" />
+                    <text x="94" y="60" font-family="Material Symbols Outlined" font-size="14" fill="#006C48">local_shipping</text>
+                  </g>
+                </svg>
+                <div class="absolute bottom-2 left-3 right-3 bg-surface/90 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-outline-variant flex items-center justify-between text-xs font-semibold text-on-surface">
+                  <span id="mapStatusBar">Status: Delivery completed &amp; signed</span>
+                  <span class="text-primary">100% On-Time</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Photo Lightbox Modal -->
+  <div id="imageLightbox" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4" onclick="this.classList.add('hidden')">
+    <div class="max-w-3xl w-full flex flex-col gap-3" onclick="event.stopPropagation()">
+      <div class="flex justify-end">
+        <button type="button" onclick="document.getElementById('imageLightbox').classList.add('hidden')" class="text-white hover:text-accent transition-colors">
+          <span class="material-symbols-outlined text-headline-sm">close</span>
+        </button>
+      </div>
+      <img id="lightboxImg" src="" alt="Enlarged inspection preview" class="w-full max-h-[75vh] object-contain rounded-xl shadow-2xl">
+      <p id="lightboxCaption" class="text-white text-center font-body text-body-md"></p>
+    </div>
+  </div>
+
+  <!-- Printable 80G Receipt Modal -->
+  <div id="receiptModal" class="hidden fixed inset-0 z-50 bg-on-surface/50 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-surface rounded-2xl max-w-2xl w-full p-8 border border-outline-variant shadow-2xl flex flex-col gap-6 max-h-[90vh] overflow-y-auto">
+      <div id="printableReceipt" class="flex flex-col gap-6">
+        <div class="flex items-center justify-between border-b-2 border-primary pb-4">
+          <div class="flex items-center gap-3">
+            <div class="w-12 h-12 rounded-lg bg-primary text-on-primary flex items-center justify-center font-bold text-headline-sm">
+              <span class="material-symbols-outlined">volunteer_activism</span>
+            </div>
+            <div>
+              <h2 class="font-headline text-headline-sm font-bold text-primary">SevaSetu Impact Network</h2>
+              <p class="text-xs text-on-surface-muted">Govt of India Reg: 80G(5)(vi) of Income Tax Act 1961 · Ref: CIT(E)/CHN/80G/2021-22</p>
+            </div>
+          </div>
+          <div class="text-right">
+            <span class="px-3 py-1 rounded-full bg-primary-container text-on-primary-container font-label text-label-sm font-bold">OFFICIAL 80G RECEIPT</span>
+            <p id="printReceiptNo" class="text-xs text-on-surface-muted mt-1 font-mono">REC-2026-9041</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 text-sm font-body">
+          <div>
+            <p class="text-on-surface-muted text-xs">DONOR DETAILS</p>
+            <p id="printDonorName" class="font-bold text-base text-on-surface mt-0.5">Priya Venkatesh</p>
+            <p id="printDonorAddress" class="text-on-surface-muted">Mylapore, Chennai 600004</p>
+            <p id="printDonorPhone" class="text-on-surface-muted">Mobile: +91 98400 76543</p>
+          </div>
+          <div class="text-right">
+            <p class="text-on-surface-muted text-xs">DATE &amp; VERIFICATION</p>
+            <p id="printDate" class="font-bold text-on-surface mt-0.5">20 November 2026</p>
+            <p id="printOrg" class="text-on-surface-muted">Delivered to: Anandam Bal Ashram</p>
+            <p id="printOtp" class="text-primary font-semibold">Delivery OTP: 4829 (Verified)</p>
+          </div>
+        </div>
+
+        <div class="border border-outline-variant rounded-xl overflow-hidden">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-surface-secondary text-on-surface font-semibold border-b border-outline-variant">
+              <tr>
+                <th class="p-3">Item Description</th>
+                <th class="p-3">Category</th>
+                <th class="p-3">Quantity</th>
+                <th class="p-3 text-right">Beneficiaries Reached</th>
+              </tr>
+            </thead>
+            <tbody id="printItemsTableBody" class="divide-y divide-outline-variant">
+              <tr>
+                <td class="p-3 font-medium">Sona Masoori Rice &amp; Toor Dal Pack</td>
+                <td class="p-3 text-on-surface-muted">Food &amp; Groceries</td>
+                <td class="p-3 tabular-nums">15 kg (Sealed)</td>
+                <td class="p-3 text-right font-semibold text-primary">85 Children</td>
+              </tr>
+              <tr>
+                <td class="p-3 font-medium">Warm Cotton Blankets</td>
+                <td class="p-3 text-on-surface-muted">Blankets &amp; Sheets</td>
+                <td class="p-3 tabular-nums">4 Units</td>
+                <td class="p-3 text-right font-semibold text-primary">4 Dormitories</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="flex items-center justify-between border-t border-outline-variant pt-4">
+          <div class="flex items-center gap-3">
+            <!-- Simulated QR Code -->
+            <div class="w-16 h-16 bg-surface-secondary border border-outline p-1 rounded-md flex flex-col items-center justify-center text-center">
+              <span class="material-symbols-outlined text-title-lg text-on-surface">qr_code_2</span>
+              <span class="text-[8px] font-mono">VERIFIED</span>
+            </div>
+            <p class="text-xs text-on-surface-muted max-w-xs">
+              Scan QR code to verify immutable cryptographic certificate proof on SevaSetu public ledger.
+            </p>
+          </div>
+          <div class="text-right">
+            <p id="printSignatureName" class="font-script text-lg text-primary font-bold italic">Meena R.</p>
+            <p id="printSignatoryName" class="text-xs font-semibold text-on-surface">Warden Meena R.</p>
+            <p id="printSignatoryOrg" class="text-[10px] text-on-surface-muted">Authorised Signatory · Anandam Bal Ashram</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-end gap-3 pt-3 border-t border-outline-variant no-print">
+        <button type="button" onclick="document.getElementById('receiptModal').classList.add('hidden')" class="px-5 py-2.5 rounded-full text-on-surface-muted hover:text-on-surface font-label text-label-md font-semibold">
+          Close
+        </button>
+        <button type="button" onclick="window.print()" class="px-6 py-2.5 rounded-full bg-primary text-on-primary hover:bg-primary-hover font-label text-label-md font-semibold shadow-sm flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-sm">print</span>
+          <span>Print / Save as PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-on-surface text-surface pt-10 pb-8 mt-12 no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-body text-body-sm text-surface/80">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-accent" aria-hidden="true">volunteer_activism</span>
+        <span class="font-headline text-title-md text-surface font-bold">SevaSetu</span>
+        <span>· Transparent Tracking &amp; Proof of Donation</span>
+      </div>
+      <p>© 2026 SevaSetu Social Impact Network</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/common.js"></script>
+  <script>
+    let activeTrackingId = 'TRK-SEVA-2026-9041';
+    let currentDonation = null;
+    let currentStepIndex = 8;
+
+    const STAGES = [
+      { step: 1, name: "Request Created", time: "09:30 AM" },
+      { step: 2, name: "Pickup Confirmed", time: "09:45 AM" },
+      { step: 3, name: "Delivery Partner Assigned", time: "09:52 AM" },
+      { step: 4, name: "Items / Food Collected", time: "10:15 AM" },
+      { step: 5, name: "On the Way", time: "10:35 AM" },
+      { step: 6, name: "Reached Destination", time: "11:32 AM" },
+      { step: 7, name: "Received by Organisation", time: "11:38 AM" },
+      { step: 8, name: "Donation Successfully Completed", time: "11:40 AM" }
+    ];
+
+    function switchTab(tab) {
+      const proof = document.getElementById('proofPanel');
+      const track = document.getElementById('trackPanel');
+      const bProof = document.getElementById('tabProofBtn');
+      const bTrack = document.getElementById('tabTrackBtn');
+      if (tab === 'proof') {
+        proof.classList.remove('hidden');
+        track.classList.add('hidden');
+        bProof.className = 'px-5 py-2 rounded-full bg-primary text-on-primary font-label text-label-md font-semibold transition-all';
+        bTrack.className = 'px-5 py-2 rounded-full text-on-surface-muted hover:text-on-surface font-label text-label-md font-semibold transition-all';
+      } else {
+        track.classList.remove('hidden');
+        proof.classList.add('hidden');
+        bTrack.className = 'px-5 py-2 rounded-full bg-primary text-on-primary font-label text-label-md font-semibold transition-all';
+        bProof.className = 'px-5 py-2 rounded-full text-on-surface-muted hover:text-on-surface font-label text-label-md font-semibold transition-all';
+      }
+    }
+
+    function zoomImage(url, caption) {
+      document.getElementById('lightboxImg').src = url;
+      document.getElementById('lightboxCaption').textContent = caption;
+      document.getElementById('imageLightbox').classList.remove('hidden');
+    }
+
+    function openPrintReceiptModal() {
+      document.getElementById('receiptModal').classList.remove('hidden');
+    }
+
+    function openWhatsAppShare() {
+      const org = currentDonation ? (currentDonation.ngoName || currentDonation.targetKitchen || 'an Ashram') : 'Anandam Bal Ashram';
+      const tid = activeTrackingId || 'TRK-SEVA-2026-9041';
+      const text = encodeURIComponent(`I just donated essentials & rescued food to ${org} via SevaSetu! Track live proof with OTP & photos (ID: ${tid}): http://localhost:5000/proof-of-donation/ProofOfDonation.html?id=${tid}`);
+      window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+      showToast('Opening WhatsApp to share verified impact card!');
+    }
+
+    let isPlaying = false;
+    function playHandoverVideo() {
+      isPlaying = !isPlaying;
+      const icon = document.getElementById('playIcon');
+      const status = document.getElementById('videoPlayStatus');
+      const driver = currentDonation && currentDonation.driver ? currentDonation.driver.name : 'Karthik S.';
+      const org = currentDonation ? (currentDonation.ngoName || 'organisation') : 'Anandam Bal Ashram';
+      if (isPlaying) {
+        icon.textContent = 'pause';
+        status.textContent = `Playing handover clip: "Items received safely at ${org} reception gate..."`;
+        showToast('Playing verified audio & video clip recorded by ' + driver);
+      } else {
+        icon.textContent = 'play_arrow';
+        status.textContent = 'Paused · Tap to resume';
+      }
+    }
+
+    function renderTimeline(stageIndex) {
+      currentStepIndex = stageIndex;
+      const steps = document.querySelectorAll('.timeline-step');
+      const otpVal = currentDonation && currentDonation.otp ? currentDonation.otp : 4829;
+
+      steps.forEach((el, idx) => {
+        const stepNum = idx + 1;
+        const dot = el.querySelector('span:first-child');
+        const text = el.querySelector('span:last-child');
+        const titleSpan = el.querySelector('.flex items-center > span:last-child') || el.querySelector('span:nth-child(2)');
+
+        // Dynamic OTP display on step 4
+        if (stepNum === 4 && titleSpan) {
+          titleSpan.textContent = `4. Items / Food Collected (OTP: ${otpVal})`;
+        }
+
+        if (stepNum <= currentStepIndex) {
+          dot.className = 'w-4 h-4 rounded-full bg-primary -ml-[27px] border-2 border-surface shrink-0';
+          if (stepNum === currentStepIndex) {
+            dot.classList.add('pulse-active');
+            text.className = 'font-label text-label-md text-primary-hover font-bold';
+          } else {
+            text.className = 'font-body text-body-sm text-primary-hover tabular-nums';
+          }
+        } else {
+          dot.className = 'w-4 h-4 rounded-full bg-outline -ml-[27px] border-2 border-surface shrink-0';
+          text.className = 'font-label text-label-md text-on-surface-muted font-normal';
+        }
+      });
+    }
+
+    function updateStatusForStage(stage) {
+      const badge = document.getElementById('proofStatusBadge');
+      const badgeText = document.getElementById('proofStatusBadgeText');
+      const headline = document.getElementById('proofHeadline');
+      const donorName = currentDonation ? (currentDonation.donorName || (currentDonation.anonymous ? 'Generous Donor' : 'Priya Venkatesh')) : 'Priya Venkatesh';
+      const orgName = currentDonation ? (currentDonation.ngoName || currentDonation.targetKitchen || 'Anandam Bal Ashram') : 'Anandam Bal Ashram';
+
+      if (stage >= 8) {
+        if (badge) badge.className = 'inline-flex items-center gap-1.5 self-start px-3.5 py-1.5 rounded-full bg-success-container text-on-success-container font-label text-label-sm font-bold shadow-sm';
+        if (badgeText) badgeText.textContent = 'DONATION SUCCESSFULLY COMPLETED';
+        if (headline) headline.textContent = 'Your Kindness Has Reached Its Destination!';
+        document.getElementById('proofDescription').textContent = `Thank you, ${donorName}. Your essential items were safely handed over to ${orgName} with verified receiver confirmation and photo proof.`;
+      } else {
+        if (badge) badge.className = 'inline-flex items-center gap-1.5 self-start px-3.5 py-1.5 rounded-full bg-accent-container text-on-accent-container font-label text-label-sm font-bold shadow-sm';
+        if (badgeText) badgeText.textContent = `IN TRANSIT · STAGE ${stage} OF 8: ${STAGES[stage - 1].name.toUpperCase()}`;
+        if (headline) headline.textContent = `Your Donation Is on Its Way to ${orgName}`;
+        document.getElementById('proofDescription').textContent = `Thank you, ${donorName}. Active dispatch in progress with live GPS tracking and delivery OTP verification.`;
+      }
+    }
+
+    async function advanceStage() {
+      showToast('Advancing donation stage on live backend...');
+      try {
+        const res = await SevaAPI.advanceTrackingStage(activeTrackingId);
+        const newStage = res && res.currentStage ? res.currentStage : ((currentStepIndex % 8) + 1);
+        if (currentDonation) {
+          currentDonation.currentStage = newStage;
+        }
+        renderTimeline(newStage);
+        updateStatusForStage(newStage);
+        showToast(`Status updated to Stage ${newStage}: ${STAGES[newStage - 1].name} (persisted in backend!)`);
+      } catch (err) {
+        const next = (currentStepIndex % 8) + 1;
+        renderTimeline(next);
+        updateStatusForStage(next);
+        showToast(`Offline status updated to Stage ${next}`);
+      }
+    }
+
+    async function loadTrackingData(id) {
+      if (!id) return;
+      activeTrackingId = id;
+      document.getElementById('headerTrackingId').textContent = "TRACKING ID: " + id;
+
+      try {
+        const data = await SevaAPI.getTracking(id);
+        if (data) {
+          currentDonation = data;
+          const stage = parseInt(data.currentStage) || 8;
+          currentStepIndex = stage;
+
+          // Donor name
+          const donor = data.donorName || (data.providerName || (data.anonymous ? 'Anonymous Donor' : 'Priya Venkatesh'));
+          const org = data.ngoName || data.targetKitchen || 'Anandam Bal Ashram';
+          const recNo = data.receiptId || ('REC-' + (data.id ? data.id.replace(/\D/g, '').slice(-4) : '9041'));
+          const otp = data.otp || 4829;
+
+          // Build items description
+          let itemsDesc = 'Essential Groceries & Supplies';
+          if (Array.isArray(data.items) && data.items.length > 0) {
+            itemsDesc = data.items.map(it => `${it.name} (${it.qty || '1 unit'})`).join(', ');
+          } else if (data.foodItem) {
+            itemsDesc = `${data.foodItem} (${data.portions || 35} portions)`;
+          } else if (data.category) {
+            itemsDesc = `${data.category} Package`;
+          }
+
+          // Sidebar Receipt Updates
+          const sidRec = document.getElementById('sidebarReceiptNo');
+          if (sidRec) sidRec.textContent = '#' + recNo;
+          const sidDon = document.getElementById('sidebarDonationId');
+          if (sidDon) sidDon.textContent = data.id;
+          const sidName = document.getElementById('sidebarDonorName');
+          if (sidName) sidName.textContent = donor;
+          const sidItems = document.getElementById('sidebarItems');
+          if (sidItems) sidItems.textContent = itemsDesc;
+          const sidOrg = document.getElementById('sidebarOrg');
+          if (sidOrg) sidOrg.textContent = org;
+          const sidPickup = document.getElementById('sidebarPickupTime');
+          if (sidPickup) sidPickup.textContent = (data.pickupDate || '20 Nov 2026') + (data.pickupSlot ? ` (${data.pickupSlot})` : ' · 10:15 AM');
+          const sidDel = document.getElementById('sidebarDeliveryTime');
+          if (sidDel) sidDel.textContent = stage >= 8 ? '20 Nov, 11:40 AM (Completed)' : 'Estimated 11:45 AM';
+          const sidSign = document.getElementById('sidebarSignatory');
+          if (sidSign) sidSign.textContent = data.proof && data.proof.signatory ? `Signed by ${data.proof.signatory}` : (stage >= 8 ? 'Signed by Warden Meena R.' : 'Pending Handover Verification');
+
+          // Printable 80G Modal Updates
+          const prRec = document.getElementById('printReceiptNo');
+          if (prRec) prRec.textContent = recNo;
+          const prDonor = document.getElementById('printDonorName');
+          if (prDonor) prDonor.textContent = donor;
+          const prAddr = document.getElementById('printDonorAddress');
+          if (prAddr) prAddr.textContent = data.pickupAddress || 'Mylapore, Chennai 600004';
+          const prPhone = document.getElementById('printDonorPhone');
+          if (prPhone) prPhone.textContent = 'Mobile: ' + (data.donorPhone || data.phone || '+91 98400 76543');
+          const prDate = document.getElementById('printDate');
+          if (prDate) prDate.textContent = data.pickupDate || '20 November 2026';
+          const prOrg = document.getElementById('printOrg');
+          if (prOrg) prOrg.textContent = 'Delivered to: ' + org;
+          const prOtp = document.getElementById('printOtp');
+          if (prOtp) prOtp.textContent = `Delivery OTP: ${otp} (Verified)`;
+
+          // Populate items table
+          const tbody = document.getElementById('printItemsTableBody');
+          if (tbody) {
+            if (Array.isArray(data.items) && data.items.length > 0) {
+              tbody.innerHTML = data.items.map(it => `
+                <tr>
+                  <td class="p-3 font-medium">${it.name}</td>
+                  <td class="p-3 text-on-surface-muted">${data.category || 'General'}</td>
+                  <td class="p-3 tabular-nums">${it.qty || '1 pkg'}</td>
+                  <td class="p-3 text-right font-semibold text-primary">Verified Beneficiaries</td>
+                </tr>
+              `).join('');
+            } else if (data.foodItem) {
+              tbody.innerHTML = `
+                <tr>
+                  <td class="p-3 font-medium">${data.foodItem}</td>
+                  <td class="p-3 text-on-surface-muted">Rescued Hot Meals</td>
+                  <td class="p-3 tabular-nums">${data.portions || 35} Portions</td>
+                  <td class="p-3 text-right font-semibold text-primary">${data.portions || 35} People Fed</td>
+                </tr>
+              `;
+            }
+          }
+
+          // Driver details
+          if (data.driver) {
+            const dn = document.getElementById('driverName');
+            if (dn) dn.textContent = data.driver.name;
+            const dv = document.getElementById('driverVehicle');
+            if (dv) dv.textContent = data.driver.vehicle;
+            const dr = document.getElementById('driverRating');
+            if (dr) dr.textContent = '★ ' + (data.driver.rating || '4.96');
+          }
+
+          // Map locations
+          const mapPick = document.getElementById('mapPickupText');
+          if (mapPick && data.pickupAddress) {
+            const loc = data.pickupAddress.split(',')[0].trim();
+            mapPick.textContent = loc.length > 15 ? loc.slice(0, 15) : loc;
+          }
+          const mapDst = document.getElementById('mapDestText');
+          if (mapDst && org) {
+            mapDst.textContent = org.length > 16 ? org.slice(0, 16) : org;
+          }
+          const mapRoute = document.getElementById('mapRouteHeader');
+          if (mapRoute) {
+            mapRoute.textContent = `${mapPick ? mapPick.textContent : 'Pickup'} → ${org.split(' ')[0]} (Live Route)`;
+          }
+
+          // Render timeline & status badge
+          renderTimeline(stage);
+          updateStatusForStage(stage);
+          showToast(`Loaded live backend records for ${id}`);
+        } else {
+          showToast(`No backend record found for ${id}. Showing template view.`);
+        }
+      } catch (err) {
+        console.warn('Could not fetch tracking data:', err);
+      }
+    }
+
+    function changeTrackingId() {
+      const customId = prompt("Enter Tracking or Donation ID to look up:", activeTrackingId);
+      if (customId && customId.trim()) {
+        const trimmed = customId.trim();
+        loadTrackingData(trimmed);
+      }
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const queryId = params.get('id') || params.get('trackingId');
+      const tabParam = params.get('tab');
+
+      if (tabParam === 'track') {
+        switchTab('track');
+      }
+
+      if (queryId) {
+        loadTrackingData(queryId);
+      } else {
+        const active = localStorage.getItem('sevasetu_active_order');
+        if (active) {
+          try {
+            const order = JSON.parse(active);
+            if (order.id) {
+              loadTrackingData(order.id);
+              return;
+            }
+          } catch(e) {}
+        }
+        // Default to non-mock persisted donation
+        loadTrackingData('TRK-SEVA-2026-9041');
+      }
+    });
+  </script>
+</body>
+</html>

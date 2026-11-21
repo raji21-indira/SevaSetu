@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find an Ashram / NGO — SevaSetu</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    globalThis.tailwind = globalThis.tailwind || {};
+    globalThis.tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'primary': '#16845B',
+            'on-primary': '#FFFFFF',
+            'primary-hover': '#006C48',
+            'primary-container': '#BEFFDB',
+            'on-primary-container': '#002113',
+            'primary-tint': '#F4FFF6',
+            'secondary': '#FFF9F0',
+            'on-secondary': '#252A29',
+            'accent': '#F4B942',
+            'on-accent': '#271900',
+            'accent-container': '#FFEED8',
+            'on-accent-container': '#412D00',
+            'surface': '#FFFFFF',
+            'surface-secondary': '#F5F7F6',
+            'surface-container': '#EDF2F0',
+            'on-surface': '#252A29',
+            'on-surface-muted': '#5A5F5E',
+            'outline': '#C3C7C6',
+            'outline-variant': '#DFE3E1',
+            'success': '#16845B',
+            'on-success': '#FFFFFF',
+            'success-container': '#BEFFDB',
+            'on-success-container': '#002113',
+            'warning': '#9C6F00',
+            'on-warning': '#060606',
+            'warning-container': '#FFEED8',
+            'on-warning-container': '#271900',
+            'error': '#BA1A1A',
+            'on-error': '#FFFFFF',
+            'error-container': '#FFDAD6',
+            'on-error-container': '#410002',
+            'info': '#006398',
+            'on-info': '#FFFFFF',
+            'info-container': '#E7F2FF',
+            'on-info-container': '#001D31',
+          },
+          borderRadius: {
+            'sm': '6px',
+            'DEFAULT': '10px',
+            'md': '12px',
+            'lg': '16px',
+            'xl': '24px',
+            'full': '9999px',
+          },
+          fontFamily: {
+            'display': ['"Poppins"', 'sans-serif'],
+            'headline': ['"Poppins"', 'sans-serif'],
+            'title': ['"Inter"', 'sans-serif'],
+            'body': ['"Inter"', 'sans-serif'],
+            'label': ['"Inter"', 'sans-serif'],
+          },
+          fontSize: {
+            'display-lg': ['48px', { lineHeight: '56px', letterSpacing: '-0.5px', fontWeight: '700' }],
+            'display-lg-mobile': ['32px', { lineHeight: '40px', letterSpacing: '-0.25px', fontWeight: '700' }],
+            'headline-lg': ['36px', { lineHeight: '44px', letterSpacing: '-0.25px', fontWeight: '700' }],
+            'headline-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+            'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '0px', fontWeight: '600' }],
+            'headline-sm': ['20px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '600' }],
+            'title-lg': ['18px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '600' }],
+            'title-md': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '600' }],
+            'body-lg': ['16px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '400' }],
+            'body-md': ['14px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+            'body-sm': ['12px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+            'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+            'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '600' }],
+            'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.3px', fontWeight: '600' }],
+          }
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; vertical-align: middle; }
+  </style>
+</head>
+<body class="bg-surface-secondary text-on-surface font-body min-h-screen flex flex-col">
+
+  <!-- Shared App Header -->
+  <header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-outline-variant shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between gap-4 py-3.5">
+        <a href="../home/Home.html" class="flex items-center gap-2.5 shrink-0 hover:opacity-90 transition-opacity">
+          <div class="w-10 h-10 rounded-md bg-primary text-on-primary flex items-center justify-center shadow-sm">
+            <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">volunteer_activism</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-headline text-title-lg text-on-surface leading-none font-bold">SevaSetu</span>
+            <span class="font-body text-body-sm text-primary-hover font-medium">Donate &amp; Rescue</span>
+          </div>
+        </a>
+
+        <nav aria-label="Main navigation" class="hidden xl:flex items-center gap-5">
+          <a href="../home/Home.html" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">Home</a>
+          <a href="../donate-items/DonateItems.html" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">Donate Items</a>
+          <a href="../food-rescue/FoodRescue.html" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">Food Rescue</a>
+          <a href="FindAshram.html" class="font-label text-label-lg text-primary-hover border-b-2 border-primary pb-0.5 whitespace-nowrap font-semibold">Find an Ashram</a>
+          <a href="../home/Home.html#how-it-works" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">How It Works</a>
+          <a href="../proof-of-donation/ProofOfDonation.html" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">Track &amp; Proof</a>
+        </nav>
+
+        <div class="flex items-center gap-2.5 shrink-0">
+          <button type="button" onclick="toggleLang()" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-secondary text-on-surface border border-outline-variant hover:border-primary transition-colors" aria-label="Switch language">
+            <span class="material-symbols-outlined text-body-lg text-primary-hover" aria-hidden="true">translate</span>
+            <span id="langLabel" class="font-label text-label-sm font-semibold">EN / தமிழ்</span>
+          </button>
+
+          <div class="relative">
+            <button onclick="toggleNotificationDropdown()" type="button" aria-label="Notifications" class="relative inline-flex items-center justify-center w-10 h-10 rounded-full bg-surface-secondary text-on-surface hover:bg-surface-container transition-colors">
+              <span class="material-symbols-outlined text-title-lg" aria-hidden="true">notifications</span>
+              <span data-component-id="badge-numeric" aria-hidden="true" class="absolute -top-0.5 -right-0.5 inline-flex items-center justify-center min-w-4 h-4 px-1 rounded-full bg-error text-on-error tabular-nums text-label-sm font-bold">
+                3
+              </span>
+            </button>
+          </div>
+
+          <button type="button" onclick="document.getElementById('authModal').classList.remove('hidden')" aria-label="Login or Register" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-full bg-surface-secondary text-on-surface hover:bg-surface-container transition-colors border border-outline-variant">
+            <span class="material-symbols-outlined text-title-lg text-primary-hover" aria-hidden="true">account_circle</span>
+            <span class="hidden md:inline font-label text-label-md font-semibold">Priya</span>
+          </button>
+
+          <a href="../donate-items/DonateItems.html" class="hidden sm:inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full bg-primary text-on-primary hover:bg-primary-hover transition-colors whitespace-nowrap font-label text-label-md font-semibold shadow-sm">
+            Donate Now
+          </a>
+
+          <a href="../food-rescue/FoodRescue.html" class="hidden sm:inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full bg-accent text-on-accent hover:opacity-90 transition-opacity whitespace-nowrap font-label text-label-md font-semibold shadow-sm">
+            Rescue Food
+          </a>
+
+          <button type="button" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="xl:hidden inline-flex items-center justify-center w-10 h-10 rounded-full bg-surface-secondary text-on-surface" aria-label="Open menu">
+            <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobileMenu" class="hidden xl:hidden pb-4 border-t border-outline-variant pt-3">
+        <div class="grid grid-cols-2 gap-2">
+          <a href="../home/Home.html" class="px-3 py-2 rounded-md hover:bg-surface-secondary font-label text-label-md">Home</a>
+          <a href="../donate-items/DonateItems.html" class="px-3 py-2 rounded-md hover:bg-surface-secondary font-label text-label-md">Donate Items</a>
+          <a href="../food-rescue/FoodRescue.html" class="px-3 py-2 rounded-md hover:bg-surface-secondary font-label text-label-md">Food Rescue</a>
+          <a href="FindAshram.html" class="px-3 py-2 rounded-md bg-primary-tint text-primary-hover font-label text-label-md font-semibold">Find an Ashram</a>
+          <a href="../proof-of-donation/ProofOfDonation.html" class="px-3 py-2 rounded-md hover:bg-surface-secondary font-label text-label-md">Track &amp; Proof</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-8">
+      <div class="flex flex-col gap-4">
+        <div>
+          <span class="font-label text-label-md text-primary-hover font-bold tracking-wide">VERIFIED RECEIVING ORGANISATIONS</span>
+          <h1 class="font-headline text-headline-lg-mobile lg:text-headline-lg text-on-surface font-bold mt-1">Find an Ashram or Verified NGO</h1>
+          <p class="font-body text-body-md text-on-surface-muted mt-1">Every organisation is audited with 80G/12A registration, physical premises inspection, and real-time requirement updates.</p>
+        </div>
+
+        <!-- Filter & Search Bar -->
+        <div class="bg-surface rounded-2xl border border-outline-variant p-4 shadow-sm grid grid-cols-1 md:grid-cols-4 gap-3">
+          <div class="relative flex items-center md:col-span-2">
+            <span class="material-symbols-outlined absolute left-3.5 text-on-surface-muted pointer-events-none" aria-hidden="true">search</span>
+            <input id="searchInput" oninput="filterOrgs()" type="search" placeholder="Search by name, city, or requirement (e.g. rice, blankets, books)..." class="w-full rounded-xl border border-outline bg-surface pl-11 pr-4 py-2.5 font-body text-body-md focus:border-primary focus:ring-1 focus:ring-primary">
+          </div>
+          <select id="typeFilter" onchange="filterOrgs()" class="rounded-xl border border-outline bg-surface px-3 py-2.5 font-body text-body-md focus:border-primary focus:ring-1 focus:ring-primary">
+            <option value="all">All Organisation Types</option>
+            <option value="Orphanage">Orphanages</option>
+            <option value="Old-Age Home">Old-Age Homes</option>
+            <option value="Community Food Centre">Community Food Centres</option>
+            <option value="Special Needs">Special Needs Homes</option>
+            <option value="Women Shelter">Women Shelters</option>
+            <option value="Animal Shelter">Animal Shelters</option>
+          </select>
+          <select id="cityFilter" onchange="filterOrgs()" class="rounded-xl border border-outline bg-surface px-3 py-2.5 font-body text-body-md focus:border-primary focus:ring-1 focus:ring-primary">
+            <option value="all">All Locations</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Bengaluru">Bengaluru</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Coimbatore">Coimbatore</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Organisations Grid -->
+      <div id="orgGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+        
+        <!-- Org 1: Anandam Bal Ashram -->
+        <article data-type="Orphanage" data-city="Chennai" class="org-card bg-surface rounded-2xl border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full">
+          <div>
+            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80" alt="Anandam Bal Ashram classroom" class="w-full h-48 object-cover">
+            <div class="p-5 flex flex-col gap-3">
+              <div class="flex items-center justify-between">
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-container text-on-primary-container font-label text-label-sm font-semibold">
+                  <span class="material-symbols-outlined text-sm">verified</span> Verified 80G
+                </span>
+                <span class="text-xs text-on-surface-muted font-medium">Audit: Nov 2026</span>
+              </div>
+              <div>
+                <h2 class="font-headline text-title-lg text-on-surface font-bold">Anandam Bal Ashram</h2>
+                <p class="font-body text-body-sm text-on-surface-muted font-medium">Orphanage · 85 Children (Ages 4–17)</p>
+              </div>
+              <p class="font-body text-body-sm text-on-surface-muted flex items-start gap-1">
+                <span class="material-symbols-outlined text-sm text-primary shrink-0 mt-0.5">location_on</span>
+                18, Gandhi Nagar Main Rd, Adyar, Chennai 600020
+              </p>
+              <div class="bg-surface-secondary rounded-xl p-3 flex flex-col gap-1.5 border border-outline-variant">
+                <p class="font-label text-label-sm text-on-surface font-semibold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm text-primary">priority_high</span> Current Requirements:
+                </p>
+                <p class="font-body text-body-sm text-on-surface-muted">Items: Notebooks, School Bags, Rice (30 kg)</p>
+                <p class="font-body text-body-sm text-primary-hover font-semibold">Food: Vegetarian Dinner (60 portions)</p>
+              </div>
+              <p class="font-body text-body-sm text-on-surface-muted">Contact: +91 44 2441 8890</p>
+            </div>
+          </div>
+          <div class="px-5 pb-5 pt-3 border-t border-outline-variant flex items-center justify-between gap-3">
+            <button type="button" onclick="openProfile('Anandam Bal Ashram', 'Orphanage · 85 Children', '18, Gandhi Nagar Main Rd, Adyar, Chennai', '80G & TN NGO Reg #TN-4419/2018', '+91 44 2441 8890')" class="font-label text-label-md text-primary-hover hover:underline font-semibold">View Profile</button>
+            <a href="../donate-items/DonateItems.html?ngo=Anandam+Bal+Ashram" class="px-4 py-2 rounded-full bg-primary text-on-primary font-label text-label-md font-semibold hover:bg-primary-hover transition-colors shadow-sm">Fulfill Need</a>
+          </div>
+        </article>
+
+        <!-- Org 2: Shanti Niketan Elders -->
+        <article data-type="Old-Age Home" data-city="Bengaluru" class="org-card bg-surface rounded-2xl border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full">
+          <div>
+            <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80" alt="Shanti Niketan Elders Home courtyard" class="w-full h-48 object-cover">
+            <div class="p-5 flex flex-col gap-3">
+              <div class="flex items-center justify-between">
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-container text-on-primary-container font-label text-label-sm font-semibold">
+                  <span class="material-symbols-outlined text-sm">verified</span> Verified 80G
+                </span>
+                <span class="text-xs text-on-surface-muted font-medium">Audit: Oct 2026</span>
+              </div>
+              <div>
+                <h2 class="font-headline text-title-lg text-on-surface font-bold">Shanti Niketan Elders</h2>
+                <p class="font-body text-body-sm text-on-surface-muted font-medium">Old-Age Home · 62 Senior Residents</p>
+              </div>
+              <p class="font-body text-body-sm text-on-surface-muted flex items-start gap-1">
+                <span class="material-symbols-outlined text-sm text-primary shrink-0 mt-0.5">location_on</span>
+                42, 12th Main Rd, Indiranagar, Bengaluru 560038
+              </p>
+              <div class="bg-surface-secondary rounded-xl p-3 flex flex-col gap-1.5 border border-outline-variant">
+                <p class="font-label text-label-sm text-on-surface font-semibold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm text-primary">priority_high</span> Current Requirements:
+                </p>
+                <p class="font-body text-body-sm text-on-surface-muted">Items: Warm Blankets, Hygiene Kits, Walkers</p>
+                <p class="font-body text-body-sm text-primary-hover font-semibold">Food: Low-spice Soft Meals (50 portions)</p>
+              </div>
+              <p class="font-body text-body-sm text-on-surface-muted">Contact: +91 80 2528 3310</p>
+            </div>
+          </div>
+          <div class="px-5 pb-5 pt-3 border-t border-outline-variant flex items-center justify-between gap-3">
+            <button type="button" onclick="openProfile('Shanti Niketan Elders', 'Old-Age Home · 62 Senior Residents', '42, 12th Main Rd, Indiranagar, Bengaluru', 'KA Trust Reg #BLR-9012/2015', '+91 80 2528 3310')" class="font-label text-label-md text-primary-hover hover:underline font-semibold">View Profile</button>
+            <a href="../donate-items/DonateItems.html?ngo=Shanti+Niketan+Elders" class="px-4 py-2 rounded-full bg-primary text-on-primary font-label text-label-md font-semibold hover:bg-primary-hover transition-colors shadow-sm">Fulfill Need</a>
+          </div>
+        </article>
+
+        <!-- Org 3: Karuna Kitchen -->
+        <article data-type="Community Food Centre" data-city="Chennai" class="org-card bg-surface rounded-2xl border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full">
+          <div>
+            <img src="https://images.unsplash.com/photo-1541802645635-11f2286a7482?auto=format&fit=crop&w=800&q=80" alt="Karuna Community Kitchen meal service" class="w-full h-48 object-cover">
+            <div class="p-5 flex flex-col gap-3">
+              <div class="flex items-center justify-between">
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-accent-container text-on-accent-container font-label text-label-sm font-semibold">
+                  <span class="material-symbols-outlined text-sm">restaurant</span> Food Rescue Hub
+                </span>
+                <span class="text-xs text-on-surface-muted font-medium">Daily Service</span>
+              </div>
+              <div>
+                <h2 class="font-headline text-title-lg text-on-surface font-bold">Karuna Kitchen</h2>
+                <p class="font-body text-body-sm text-on-surface-muted font-medium">Community Food Centre · 220 Meals/Day</p>
+              </div>
+              <p class="font-body text-body-sm text-on-surface-muted flex items-start gap-1">
+                <span class="material-symbols-outlined text-sm text-primary shrink-0 mt-0.5">location_on</span>
+                9, Usman Road, T. Nagar, Chennai 600017
+              </p>
+              <div class="bg-surface-secondary rounded-xl p-3 flex flex-col gap-1.5 border border-outline-variant">
+                <p class="font-label text-label-sm text-on-surface font-semibold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm text-accent">priority_high</span> Current Requirements:
+                </p>
+                <p class="font-body text-body-sm text-on-surface-muted">Items: Stainless Steel Plates, Cooking Oil</p>
+                <p class="font-body text-body-sm text-primary-hover font-semibold">Food: Surplus Lunch/Dinner (up to 150 meals)</p>
+              </div>
+              <p class="font-body text-body-sm text-on-surface-muted">Contact: +91 44 2815 9944</p>
+            </div>
+          </div>
+          <div class="px-5 pb-5 pt-3 border-t border-outline-variant flex items-center justify-between gap-3">
+            <button type="button" onclick="openProfile('Karuna Kitchen', 'Community Food Centre · 220 Meals/Day', '9, Usman Road, T. Nagar, Chennai', 'FSSAI & NGO Reg #TN-7721/2020', '+91 44 2815 9944')" class="font-label text-label-md text-primary-hover hover:underline font-semibold">View Profile</button>
+            <a href="../food-rescue/FoodRescue.html?ngo=Karuna+Kitchen" class="px-4 py-2 rounded-full bg-accent text-on-accent font-label text-label-md font-semibold hover:opacity-90 transition-opacity shadow-sm">Send Meals</a>
+          </div>
+        </article>
+
+        <!-- Org 4: Vasantham Special Care Home -->
+        <article data-type="Special Needs" data-city="Chennai" class="org-card bg-surface rounded-2xl border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full">
+          <div>
+            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="Special needs educational setup" class="w-full h-48 object-cover">
+            <div class="p-5 flex flex-col gap-3">
+              <div class="flex items-center justify-between">
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-container text-on-primary-container font-label text-label-sm font-semibold">
+                  <span class="material-symbols-outlined text-sm">verified</span> Verified 80G
+                </span>
+                <span class="text-xs text-on-surface-muted font-medium">Audit: Nov 2026</span>
+              </div>
+              <div>
+                <h2 class="font-headline text-title-lg text-on-surface font-bold">Vasantham Special Home</h2>
+                <p class="font-body text-body-sm text-on-surface-muted font-medium">Special Needs School · 48 Children</p>
+              </div>
+              <p class="font-body text-body-sm text-on-surface-muted flex items-start gap-1">
+                <span class="material-symbols-outlined text-sm text-primary shrink-0 mt-0.5">location_on</span>
+                14, 2nd Avenue, Mogappair, Chennai 600037
+              </p>
+              <div class="bg-surface-secondary rounded-xl p-3 flex flex-col gap-1.5 border border-outline-variant">
+                <p class="font-label text-label-sm text-on-surface font-semibold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm text-primary">priority_high</span> Current Requirements:
+                </p>
+                <p class="font-body text-body-sm text-on-surface-muted">Items: Sensory Toys, Drawing Books, Wheelchairs</p>
+                <p class="font-body text-body-sm text-primary-hover font-semibold">Food: Healthy Afternoon Snacks &amp; Fruits</p>
+              </div>
+              <p class="font-body text-body-sm text-on-surface-muted">Contact: +91 44 2656 4433</p>
+            </div>
+          </div>
+          <div class="px-5 pb-5 pt-3 border-t border-outline-variant flex items-center justify-between gap-3">
+            <button type="button" onclick="openProfile('Vasantham Special Home', 'Special Needs Center · 48 Beneficiaries', '14, 2nd Avenue, Mogappair, Chennai', 'TN Disabilities Trust #TN-8820/2016', '+91 44 2656 4433')" class="font-label text-label-md text-primary-hover hover:underline font-semibold">View Profile</button>
+            <a href="../donate-items/DonateItems.html?ngo=Vasantham+Special+Home" class="px-4 py-2 rounded-full bg-primary text-on-primary font-label text-label-md font-semibold hover:bg-primary-hover transition-colors shadow-sm">Fulfill Need</a>
+          </div>
+        </article>
+
+        <!-- Org 5: Sneha Nivas Women's Shelter -->
+        <article data-type="Women Shelter" data-city="Bengaluru" class="org-card bg-surface rounded-2xl border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full">
+          <div>
+            <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?auto=format&fit=crop&w=800&q=80" alt="Women skills workshop center" class="w-full h-48 object-cover">
+            <div class="p-5 flex flex-col gap-3">
+              <div class="flex items-center justify-between">
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-container text-on-primary-container font-label text-label-sm font-semibold">
+                  <span class="material-symbols-outlined text-sm">verified</span> Verified 80G
+                </span>
+                <span class="text-xs text-on-surface-muted font-medium">Audit: Sep 2026</span>
+              </div>
+              <div>
+                <h2 class="font-headline text-title-lg text-on-surface font-bold">Sneha Nivas Women Shelter</h2>
+                <p class="font-body text-body-sm text-on-surface-muted font-medium">Women Support Shelter · 55 Residents</p>
+              </div>
+              <p class="font-body text-body-sm text-on-surface-muted flex items-start gap-1">
+                <span class="material-symbols-outlined text-sm text-primary shrink-0 mt-0.5">location_on</span>
+                77, Jayanagar 4th Block, Bengaluru 560011
+              </p>
+              <div class="bg-surface-secondary rounded-xl p-3 flex flex-col gap-1.5 border border-outline-variant">
+                <p class="font-label text-label-sm text-on-surface font-semibold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm text-primary">priority_high</span> Current Requirements:
+                </p>
+                <p class="font-body text-body-sm text-on-surface-muted">Items: Women Hygiene Kits, Sewing Kits, Bedsheets</p>
+                <p class="font-body text-body-sm text-primary-hover font-semibold">Food: Nutritious Groceries (Lentils, Cooking Oil)</p>
+              </div>
+              <p class="font-body text-body-sm text-on-surface-muted">Contact: +91 80 2664 1290</p>
+            </div>
+          </div>
+          <div class="px-5 pb-5 pt-3 border-t border-outline-variant flex items-center justify-between gap-3">
+            <button type="button" onclick="openProfile('Sneha Nivas Women Shelter', 'Women Rehabilitation Shelter · 55 Residents', '77, Jayanagar 4th Block, Bengaluru', 'KA Women Welfare Trust #BLR-1204/2014', '+91 80 2664 1290')" class="font-label text-label-md text-primary-hover hover:underline font-semibold">View Profile</button>
+            <a href="../donate-items/DonateItems.html?ngo=Sneha+Nivas+Women+Shelter" class="px-4 py-2 rounded-full bg-primary text-on-primary font-label text-label-md font-semibold hover:bg-primary-hover transition-colors shadow-sm">Fulfill Need</a>
+          </div>
+        </article>
+
+        <!-- Org 6: Hope For Paws Animal Sanctuary -->
+        <article data-type="Animal Shelter" data-city="Coimbatore" class="org-card bg-surface rounded-2xl border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full">
+          <div>
+            <img src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?auto=format&fit=crop&w=800&q=80" alt="Rescued puppies and animals at sanctuary" class="w-full h-48 object-cover">
+            <div class="p-5 flex flex-col gap-3">
+              <div class="flex items-center justify-between">
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-container text-on-primary-container font-label text-label-sm font-semibold">
+                  <span class="material-symbols-outlined text-sm">verified</span> Verified 80G
+                </span>
+                <span class="text-xs text-on-surface-muted font-medium">Audit: Nov 2026</span>
+              </div>
+              <div>
+                <h2 class="font-headline text-title-lg text-on-surface font-bold">Hope For Paws Sanctuary</h2>
+                <p class="font-body text-body-sm text-on-surface-muted font-medium">Animal Shelter · 140 Rescued Animals</p>
+              </div>
+              <p class="font-body text-body-sm text-on-surface-muted flex items-start gap-1">
+                <span class="material-symbols-outlined text-sm text-primary shrink-0 mt-0.5">location_on</span>
+                31, Avinashi Road, Peelamedu, Coimbatore 641004
+              </p>
+              <div class="bg-surface-secondary rounded-xl p-3 flex flex-col gap-1.5 border border-outline-variant">
+                <p class="font-label text-label-sm text-on-surface font-semibold flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm text-primary">priority_high</span> Current Requirements:
+                </p>
+                <p class="font-body text-body-sm text-on-surface-muted">Items: Old Towels, Blankets, Antiseptics, Feeding Bowls</p>
+                <p class="font-body text-body-sm text-primary-hover font-semibold">Food: Safe Cooked Rice/Broth, Dog Food</p>
+              </div>
+              <p class="font-body text-body-sm text-on-surface-muted">Contact: +91 422 257 8811</p>
+            </div>
+          </div>
+          <div class="px-5 pb-5 pt-3 border-t border-outline-variant flex items-center justify-between gap-3">
+            <button type="button" onclick="openProfile('Hope For Paws Sanctuary', 'Animal Shelter · 140 Rescued Animals', '31, Avinashi Road, Coimbatore', 'AWBI & TN Animal Trust #TN-CBE-9912/2019', '+91 422 257 8811')" class="font-label text-label-md text-primary-hover hover:underline font-semibold">View Profile</button>
+            <a href="../donate-items/DonateItems.html?ngo=Hope+For+Paws+Sanctuary" class="px-4 py-2 rounded-full bg-primary text-on-primary font-label text-label-md font-semibold hover:bg-primary-hover transition-colors shadow-sm">Fulfill Need</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Detailed Organisation Profile Modal -->
+  <div id="profileModal" class="hidden fixed inset-0 z-50 bg-on-surface/50 backdrop-blur-sm flex items-center justify-center p-4" role="dialog" aria-modal="true">
+    <div class="bg-surface rounded-2xl max-w-lg w-full p-6 border border-outline-variant shadow-2xl flex flex-col gap-4">
+      <div class="flex items-start justify-between gap-3 border-b border-outline-variant pb-3">
+        <div>
+          <h2 id="modalOrgName" class="font-headline text-headline-sm text-on-surface font-bold">Anandam Bal Ashram</h2>
+          <p id="modalOrgMeta" class="font-body text-body-sm text-on-surface-muted">Orphanage · 85 Children</p>
+        </div>
+        <button type="button" onclick="document.getElementById('profileModal').classList.add('hidden')" class="w-9 h-9 rounded-full bg-surface-secondary hover:bg-surface-container flex items-center justify-center text-on-surface transition-colors" aria-label="Close">
+          <span class="material-symbols-outlined" aria-hidden="true">close</span>
+        </button>
+      </div>
+      <div class="flex flex-col gap-3">
+        <p id="modalOrgAddr" class="font-body text-body-md text-on-surface flex items-start gap-1.5">
+          <span class="material-symbols-outlined text-primary text-lg shrink-0 mt-0.5">location_on</span>
+          <span></span>
+        </p>
+        <p id="modalOrgPhone" class="font-body text-body-sm text-on-surface flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-primary text-lg">call</span>
+          <span></span>
+        </p>
+
+        <div class="p-3.5 rounded-xl bg-primary-tint border border-primary/20">
+          <p class="font-label text-label-sm text-primary-hover font-bold">Legal Verification &amp; Tax Status</p>
+          <p id="modalOrgReg" class="font-body text-body-sm text-on-surface mt-0.5"></p>
+          <p class="text-xs text-primary-hover font-semibold mt-1">✓ Eligible for 50% Tax Exemption under Indian Income Tax Act Section 80G</p>
+        </div>
+
+        <div class="p-3.5 rounded-xl bg-surface-secondary border border-outline-variant flex flex-col gap-1.5">
+          <p class="font-label text-label-sm text-on-surface font-bold">Recent Verified Deliveries (Audit Trail)</p>
+          <p class="font-body text-body-sm text-on-surface-muted">• 20 Nov 2026: 35 Meals from Dakshin Kitchen (Proof #TRK-9041)</p>
+          <p class="font-body text-body-sm text-on-surface-muted">• 18 Nov 2026: 15 kg Rice &amp; 4 Blankets from Priya V. (Proof #DON-9041)</p>
+          <p class="font-body text-body-sm text-on-surface-muted">• 12 Nov 2026: 40 Notebook Sets from Madras Spice Co. (Proof #DON-8910)</p>
+        </div>
+      </div>
+      <div class="flex justify-end gap-3 pt-2 border-t border-outline-variant">
+        <button type="button" onclick="document.getElementById('profileModal').classList.add('hidden')" class="px-4 py-2.5 rounded-full text-on-surface-muted font-label text-label-md">Close</button>
+        <a id="modalDonateBtn" href="../donate-items/DonateItems.html" class="px-5 py-2.5 rounded-full bg-primary text-on-primary font-label text-label-md font-semibold hover:bg-primary-hover transition-colors shadow-sm">
+          Donate to This Ashram
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-on-surface text-surface pt-10 pb-8 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-body text-body-sm text-surface/80">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-accent" aria-hidden="true">volunteer_activism</span>
+        <span class="font-headline text-title-md text-surface font-bold">SevaSetu</span>
+        <span>· Verified Receiving Organisations Network</span>
+      </div>
+      <p>© 2026 SevaSetu Social Impact Network</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/common.js"></script>
+  <script>
+    async function loadLiveOrganisations() {
+      const orgs = await SevaAPI.getOrganisations();
+      if (orgs && orgs.length > 0) {
+        const grid = document.getElementById('orgGrid');
+        grid.innerHTML = '';
+        orgs.forEach(org => {
+          const isFoodHub = org.type === 'Community Food Centre';
+          const badgeClass = isFoodHub ? 'bg-accent-container text-on-accent-container' : 'bg-primary-container text-on-primary-container';
+          const icon = isFoodHub ? 'restaurant' : 'verified';
+          const badgeText = isFoodHub ? 'Food Rescue Hub' : 'Verified 80G';
+          const btnText = isFoodHub ? 'Send Meals' : 'Fulfill Need';
+          const btnLink = isFoodHub ? `../food-rescue/FoodRescue.html?ngo=${encodeURIComponent(org.name)}` : `../donate-items/DonateItems.html?ngo=${encodeURIComponent(org.name)}`;
+          const btnBg = isFoodHub ? 'bg-accent text-on-accent' : 'bg-primary text-on-primary';
+
+          const card = document.createElement('article');
+          card.dataset.type = org.type;
+          card.dataset.city = org.city;
+          card.className = 'org-card bg-surface rounded-2xl border border-outline-variant overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between h-full';
+
+          card.innerHTML = `
+            <div>
+              <img src="${org.image}" alt="${org.name}" class="w-full h-48 object-cover">
+              <div class="p-5 flex flex-col gap-3">
+                <div class="flex items-center justify-between">
+                  <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full ${badgeClass} font-label text-label-sm font-semibold">
+                    <span class="material-symbols-outlined text-sm">${icon}</span> ${badgeText}
+                  </span>
+                  <span class="text-xs text-on-surface-muted font-medium">Audit: ${org.auditDate || 'Recent'}</span>
+                </div>
+                <div>
+                  <h2 class="font-headline text-title-lg text-on-surface font-bold">${org.name}</h2>
+                  <p class="font-body text-body-sm text-on-surface-muted font-medium">${org.type} · ${org.beneficiaries}</p>
+                </div>
+                <p class="font-body text-body-sm text-on-surface-muted flex items-start gap-1">
+                  <span class="material-symbols-outlined text-sm text-primary shrink-0 mt-0.5">location_on</span>
+                  ${org.address}
+                </p>
+                <div class="bg-surface-secondary rounded-xl p-3 flex flex-col gap-1.5 border border-outline-variant">
+                  <p class="font-label text-label-sm text-on-surface font-semibold flex items-center gap-1">
+                    <span class="material-symbols-outlined text-sm text-primary">priority_high</span> Current Requirements:
+                  </p>
+                  <p class="font-body text-body-sm text-on-surface-muted">Items: ${Array.isArray(org.itemRequirements) ? org.itemRequirements.join(', ') : org.itemRequirements}</p>
+                  <p class="font-body text-body-sm text-primary-hover font-semibold">Food: ${org.foodRequirements}</p>
+                </div>
+                <p class="font-body text-body-sm text-on-surface-muted">Contact: ${org.phone}</p>
+              </div>
+            </div>
+            <div class="px-5 pb-5 pt-3 border-t border-outline-variant flex items-center justify-between gap-3">
+              <button type="button" onclick="openProfile('${org.name}', '${org.type} · ${org.beneficiaries}', '${org.address}', '${org.registration}', '${org.phone}')" class="font-label text-label-md text-primary-hover hover:underline font-semibold">View Profile</button>
+              <a href="${btnLink}" class="px-4 py-2 rounded-full ${btnBg} font-label text-label-md font-semibold hover:opacity-90 transition-opacity shadow-sm">${btnText}</a>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+      }
+    }
+
+    function filterOrgs() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      const t = document.getElementById('typeFilter').value;
+      const c = document.getElementById('cityFilter').value;
+      document.querySelectorAll('.org-card').forEach(card => {
+        const text = card.textContent.toLowerCase();
+        const typeMatch = (t === 'all' || card.dataset.type === t);
+        const cityMatch = (c === 'all' || card.dataset.city === c);
+        const qMatch = text.includes(q);
+        card.classList.toggle('hidden', !(typeMatch && cityMatch && qMatch));
+      });
+    }
+
+    function openProfile(name, meta, addr, reg, phone) {
+      document.getElementById('modalOrgName').textContent = name;
+      document.getElementById('modalOrgMeta').textContent = meta;
+      document.querySelector('#modalOrgAddr span:last-child').textContent = addr;
+      document.querySelector('#modalOrgPhone span:last-child').textContent = phone;
+      document.getElementById('modalOrgReg').textContent = reg;
+      document.getElementById('modalDonateBtn').href = '../donate-items/DonateItems.html?ngo=' + encodeURIComponent(name);
+      document.getElementById('profileModal').classList.remove('hidden');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadLiveOrganisations();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donate Items — SevaSetu</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    globalThis.tailwind = globalThis.tailwind || {};
+    globalThis.tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'primary': '#16845B',
+            'on-primary': '#FFFFFF',
+            'primary-hover': '#006C48',
+            'primary-container': '#BEFFDB',
+            'on-primary-container': '#002113',
+            'primary-tint': '#F4FFF6',
+            'secondary': '#FFF9F0',
+            'on-secondary': '#252A29',
+            'accent': '#F4B942',
+            'on-accent': '#271900',
+            'accent-container': '#FFEED8',
+            'on-accent-container': '#412D00',
+            'surface': '#FFFFFF',
+            'surface-secondary': '#F5F7F6',
+            'surface-container': '#EDF2F0',
+            'on-surface': '#252A29',
+            'on-surface-muted': '#5A5F5E',
+            'outline': '#C3C7C6',
+            'outline-variant': '#DFE3E1',
+            'success': '#16845B',
+            'on-success': '#FFFFFF',
+            'success-container': '#BEFFDB',
+            'on-success-container': '#002113',
+            'warning': '#9C6F00',
+            'on-warning': '#060606',
+            'warning-container': '#FFEED8',
+            'on-warning-container': '#271900',
+            'error': '#BA1A1A',
+            'on-error': '#FFFFFF',
+            'error-container': '#FFDAD6',
+            'on-error-container': '#410002',
+            'info': '#006398',
+            'on-info': '#FFFFFF',
+            'info-container': '#E7F2FF',
+            'on-info-container': '#001D31',
+          },
+          borderRadius: {
+            'sm': '6px',
+            'DEFAULT': '10px',
+            'md': '12px',
+            'lg': '16px',
+            'xl': '24px',
+            'full': '9999px',
+          },
+          fontFamily: {
+            'display': ['"Poppins"', 'sans-serif'],
+            'headline': ['"Poppins"', 'sans-serif'],
+            'title': ['"Inter"', 'sans-serif'],
+            'body': ['"Inter"', 'sans-serif'],
+            'label': ['"Inter"', 'sans-serif'],
+          },
+          fontSize: {
+            'display-lg': ['48px', { lineHeight: '56px', letterSpacing: '-0.5px', fontWeight: '700' }],
+            'display-lg-mobile': ['32px', { lineHeight: '40px', letterSpacing: '-0.25px', fontWeight: '700' }],
+            'headline-lg': ['36px', { lineHeight: '44px', letterSpacing: '-0.25px', fontWeight: '700' }],
+            'headline-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+            'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '0px', fontWeight: '600' }],
+            'headline-sm': ['20px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '600' }],
+            'title-lg': ['18px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '600' }],
+            'title-md': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '600' }],
+            'body-lg': ['16px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '400' }],
+            'body-md': ['14px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+            'body-sm': ['12px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+            'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+            'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '600' }],
+            'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.3px', fontWeight: '600' }],
+          }
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; vertical-align: middle; }
+  </style>
+</head>
+<body class="bg-surface-secondary text-on-surface font-body min-h-screen flex flex-col">
+
+  <!-- Shared App Header -->
+  <header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-outline-variant shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between gap-4 py-3.5">
+        <a href="../home/Home.html" class="flex items-center gap-2.5 shrink-0 hover:opacity-90 transition-opacity">
+          <div class="w-10 h-10 rounded-md bg-primary text-on-primary flex items-center justify-center shadow-sm">
+            <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">volunteer_activism</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-headline text-title-lg text-on-surface leading-none font-bold">SevaSetu</span>
+            <span class="font-body text-body-sm text-primary-hover font-medium">Donate &amp; Rescue</span>
+          </div>
+        </a>
+
+        <nav aria-label="Main navigation" class="hidden xl:flex items-center gap-5">
+          <a href="../home/Home.html" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">Home</a>
+          <a href="DonateItems.html" class="font-label text-label-lg text-primary-hover border-b-2 border-primary pb-0.5 whitespace-nowrap">Donate Items</a>
+          <a href="../food-rescue/FoodRescue.html" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">Food Rescue</a>
+          <a href="../find-ashram/FindAshram.html" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">Find an Ashram</a>
+          <a href="../home/Home.html#how-it-works" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">How It Works</a>
+          <a href="../proof-of-donation/ProofOfDonation.html" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">Track &amp; Proof</a>
+        </nav>
+
+        <div class="flex items-center gap-2.5 shrink-0">
+          <button type="button" onclick="toggleLang()" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-secondary text-on-surface border border-outline-variant hover:border-primary transition-colors" aria-label="Switch language">
+            <span class="material-symbols-outlined text-body-lg text-primary-hover" aria-hidden="true">translate</span>
+            <span id="langLabel" class="font-label text-label-sm font-semibold">EN / தமிழ்</span>
+          </button>
+
+          <div class="relative">
+            <button onclick="toggleNotificationDropdown()" type="button" aria-label="Notifications" class="relative inline-flex items-center justify-center w-10 h-10 rounded-full bg-surface-secondary text-on-surface hover:bg-surface-container transition-colors">
+              <span class="material-symbols-outlined text-title-lg" aria-hidden="true">notifications</span>
+              <span data-component-id="badge-numeric" aria-hidden="true" class="absolute -top-0.5 -right-0.5 inline-flex items-center justify-center min-w-4 h-4 px-1 rounded-full bg-error text-on-error tabular-nums text-label-sm font-bold">
+                3
+              </span>
+            </button>
+          </div>
+
+          <button type="button" onclick="document.getElementById('authModal').classList.remove('hidden')" aria-label="Login or Register" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-full bg-surface-secondary text-on-surface hover:bg-surface-container transition-colors border border-outline-variant">
+            <span class="material-symbols-outlined text-title-lg text-primary-hover" aria-hidden="true">account_circle</span>
+            <span class="hidden md:inline font-label text-label-md font-semibold">Priya</span>
+          </button>
+
+          <a href="DonateItems.html" class="hidden sm:inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full bg-primary text-on-primary hover:bg-primary-hover transition-colors whitespace-nowrap font-label text-label-md font-semibold shadow-sm">
+            Donate Now
+          </a>
+
+          <a href="../food-rescue/FoodRescue.html" class="hidden sm:inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full bg-accent text-on-accent hover:opacity-90 transition-opacity whitespace-nowrap font-label text-label-md font-semibold shadow-sm">
+            Rescue Food
+          </a>
+
+          <button type="button" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="xl:hidden inline-flex items-center justify-center w-10 h-10 rounded-full bg-surface-secondary text-on-surface" aria-label="Open menu">
+            <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobileMenu" class="hidden xl:hidden pb-4 border-t border-outline-variant pt-3">
+        <div class="grid grid-cols-2 gap-2">
+          <a href="../home/Home.html" class="px-3 py-2 rounded-md hover:bg-surface-secondary font-label text-label-md">Home</a>
+          <a href="DonateItems.html" class="px-3 py-2 rounded-md bg-primary-tint text-primary-hover font-label text-label-md font-semibold">Donate Items</a>
+          <a href="../food-rescue/FoodRescue.html" class="px-3 py-2 rounded-md hover:bg-surface-secondary font-label text-label-md">Food Rescue</a>
+          <a href="../find-ashram/FindAshram.html" class="px-3 py-2 rounded-md hover:bg-surface-secondary font-label text-label-md">Find an Ashram</a>
+          <a href="../proof-of-donation/ProofOfDonation.html" class="px-3 py-2 rounded-md hover:bg-surface-secondary font-label text-label-md">Track &amp; Proof</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <span class="font-label text-label-md text-primary-hover font-bold tracking-wide">DOORSTEP ITEM DONATION</span>
+          <h1 class="font-headline text-headline-lg-mobile lg:text-headline-lg text-on-surface font-bold mt-1">Schedule Your Essential Item Donation</h1>
+          <p class="font-body text-body-md text-on-surface-muted mt-1">Add one or multiple items, pick a convenient pickup slot, and receive verified delivery proof.</p>
+        </div>
+        <div class="flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-outline-variant shadow-sm">
+          <span class="material-symbols-outlined text-primary-hover" aria-hidden="true">verified_user</span>
+          <span class="font-label text-label-md text-on-surface font-semibold">Free Doorstep Pickup · Verified NGOs</span>
+        </div>
+      </div>
+
+      <!-- Category Quick Selector -->
+      <section class="bg-surface rounded-2xl border border-outline-variant p-6 shadow-sm">
+        <h2 class="font-headline text-title-lg text-on-surface font-bold mb-4">1. Select Donation Category</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-3" id="categoryGrid">
+          <button type="button" onclick="selectCategory(this, 'Food and Groceries')" class="cat-btn p-3 rounded-xl border-2 border-primary bg-primary-tint text-left flex items-center gap-2.5 transition-colors">
+            <span class="material-symbols-outlined text-primary-hover" aria-hidden="true">grocery</span>
+            <span class="font-label text-label-md text-on-surface font-semibold">Food &amp; Groceries</span>
+          </button>
+          <button type="button" onclick="selectCategory(this, 'Clothes')" class="cat-btn p-3 rounded-xl border border-outline-variant bg-surface hover:border-primary text-left flex items-center gap-2.5 transition-colors">
+            <span class="material-symbols-outlined text-primary-hover" aria-hidden="true">checkroom</span>
+            <span class="font-label text-label-md text-on-surface font-semibold">Clothes</span>
+          </button>
+          <button type="button" onclick="selectCategory(this, 'Books and Stationery')" class="cat-btn p-3 rounded-xl border border-outline-variant bg-surface hover:border-primary text-left flex items-center gap-2.5 transition-colors">
+            <span class="material-symbols-outlined text-primary-hover" aria-hidden="true">menu_book</span>
+            <span class="font-label text-label-md text-on-surface font-semibold">Books &amp; Stationery</span>
+          </button>
+          <button type="button" onclick="selectCategory(this, 'Toys')" class="cat-btn p-3 rounded-xl border border-outline-variant bg-surface hover:border-primary text-left flex items-center gap-2.5 transition-colors">
+            <span class="material-symbols-outlined text-primary-hover" aria-hidden="true">toys</span>
+            <span class="font-label text-label-md text-on-surface font-semibold">Toys</span>
+          </button>
+          <button type="button" onclick="selectCategory(this, 'Blankets and Bedsheets')" class="cat-btn p-3 rounded-xl border border-outline-variant bg-surface hover:border-primary text-left flex items-center gap-2.5 transition-colors">
+            <span class="material-symbols-outlined text-primary-hover" aria-hidden="true">bed</span>
+            <span class="font-label text-label-md text-on-surface font-semibold">Blankets &amp; Sheets</span>
+          </button>
+          <button type="button" onclick="selectCategory(this, 'Hygiene Products')" class="cat-btn p-3 rounded-xl border border-outline-variant bg-surface hover:border-primary text-left flex items-center gap-2.5 transition-colors">
+            <span class="material-symbols-outlined text-primary-hover" aria-hidden="true">soap</span>
+            <span class="font-label text-label-md text-on-surface font-semibold">Hygiene Products</span>
+          </button>
+          <button type="button" onclick="selectCategory(this, 'Furniture')" class="cat-btn p-3 rounded-xl border border-outline-variant bg-surface hover:border-primary text-left flex items-center gap-2.5 transition-colors">
+            <span class="material-symbols-outlined text-primary-hover" aria-hidden="true">chair</span>
+            <span class="font-label text-label-md text-on-surface font-semibold">Furniture</span>
+          </button>
+          <button type="button" onclick="selectCategory(this, 'Educational Materials')" class="cat-btn p-3 rounded-xl border border-outline-variant bg-surface hover:border-primary text-left flex items-center gap-2.5 transition-colors">
+            <span class="material-symbols-outlined text-primary-hover" aria-hidden="true">school</span>
+            <span class="font-label text-label-md text-on-surface font-semibold">Educational</span>
+          </button>
+          <button type="button" onclick="selectCategory(this, 'Other Essential Items')" class="cat-btn p-3 rounded-xl border border-outline-variant bg-surface hover:border-primary text-left flex items-center gap-2.5 transition-colors">
+            <span class="material-symbols-outlined text-primary-hover" aria-hidden="true">category</span>
+            <span class="font-label text-label-md text-on-surface font-semibold">Other Essentials</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Main Form + Summary Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <form id="donationForm" onsubmit="event.preventDefault(); submitDonationRequest();" class="lg:col-span-8 bg-surface rounded-2xl border border-outline-variant p-6 sm:p-8 shadow-sm flex flex-col gap-6">
+          <div class="flex items-center justify-between border-b border-outline-variant pb-4">
+            <h2 class="font-headline text-headline-sm text-on-surface font-bold">2. Item Details &amp; Pickup Schedule</h2>
+            <span id="selectedCategoryPill" class="px-3.5 py-1 rounded-full bg-primary-container text-on-primary-container font-label text-label-sm font-semibold">Food and Groceries</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <label class="flex flex-col gap-1.5">
+              <span class="font-label text-label-md text-on-surface font-semibold">Item Name *</span>
+              <input id="itemNameInput" type="text" placeholder="e.g. Sona Masoori Rice Bag" value="Sona Masoori Rice & Toor Dal Pack" required class="w-full rounded-lg border border-outline bg-surface px-4 py-2.5 font-body text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary">
+            </label>
+
+            <div class="grid grid-cols-2 gap-3">
+              <label class="flex flex-col gap-1.5">
+                <span class="font-label text-label-md text-on-surface font-semibold">Quantity *</span>
+                <input id="itemQtyInput" type="text" value="15 kg" required class="w-full rounded-lg border border-outline bg-surface px-3 py-2.5 font-body text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary">
+              </label>
+              <label class="flex flex-col gap-1.5">
+                <span class="font-label text-label-md text-on-surface font-semibold">Item Condition</span>
+                <select id="itemConditionInput" class="w-full rounded-lg border border-outline bg-surface px-3 py-2.5 font-body text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary">
+                  <option>Brand New / Sealed</option>
+                  <option>Gently Used (Clean)</option>
+                  <option>Good Working Condition</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <label class="flex flex-col gap-1.5">
+            <span class="font-label text-label-md text-on-surface font-semibold">Item Description</span>
+            <textarea id="itemDescInput" rows="2" class="w-full rounded-lg border border-outline bg-surface px-4 py-2.5 font-body text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary">Unopened 10kg rice bag and 5kg toor dal sealed packs, best before Dec 2027.</textarea>
+          </label>
+
+          <div class="flex flex-col gap-2">
+            <span class="font-label text-label-md text-on-surface font-semibold">Upload Item Photograph</span>
+            <div class="border-2 border-dashed border-outline hover:border-primary rounded-xl p-4 bg-surface-secondary flex flex-col sm:flex-row items-center justify-between gap-4 transition-colors">
+              <div class="flex items-center gap-3">
+                <img id="photoPreview" src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=150&q=80" alt="Sample donation items preview" class="w-16 h-16 rounded-lg object-cover border border-outline-variant shadow-sm">
+                <div>
+                  <p id="photoNameLabel" class="font-label text-label-md text-on-surface font-semibold">donation_groceries_pack.jpg</p>
+                  <p class="font-body text-body-sm text-on-surface-muted">Photo uploaded · Clear photo helps NGOs prepare storage</p>
+                  <input type="file" id="fileUploader" accept="image/*" class="hidden" onchange="handleFileUpload(event)">
+                  <button type="button" onclick="document.getElementById('fileUploader').click()" class="text-xs text-primary-hover font-semibold hover:underline mt-0.5">Change Image</button>
+                </div>
+              </div>
+              <button type="button" onclick="addItemToList()" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-primary-container text-on-primary-container hover:bg-primary hover:text-on-primary transition-colors font-label text-label-lg font-semibold shrink-0 shadow-sm">
+                <span class="material-symbols-outlined text-title-lg" aria-hidden="true">add_circle</span>
+                <span>Add Item to List</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="border-t border-outline-variant pt-6 grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <label class="flex flex-col gap-1.5 sm:col-span-2">
+              <div class="flex items-center justify-between">
+                <span class="font-label text-label-md text-on-surface font-semibold">Pickup Address *</span>
+                <button type="button" onclick="locateAddress()" class="text-xs text-primary-hover font-semibold hover:underline flex items-center gap-1">
+                  <span class="material-symbols-outlined text-sm">my_location</span>
+                  Use Current Location
+                </button>
+              </div>
+              <div class="relative flex items-center">
+                <span class="material-symbols-outlined absolute left-3.5 text-on-surface-muted pointer-events-none" aria-hidden="true">location_on</span>
+                <input id="pickupAddressInput" type="text" value="Flat 4B, Lotus Enclave, Luz Church Road, Mylapore, Chennai 600004" required class="w-full rounded-lg border border-outline bg-surface pl-11 pr-4 py-2.5 font-body text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary">
+              </div>
+            </label>
+
+            <label class="flex flex-col gap-1.5">
+              <span class="font-label text-label-md text-on-surface font-semibold">Contact Number *</span>
+              <input id="pickupPhoneInput" type="tel" value="+91 98400 76543" required class="w-full rounded-lg border border-outline bg-surface px-4 py-2.5 font-body text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary">
+            </label>
+
+            <label class="flex flex-col gap-1.5">
+              <span class="font-label text-label-md text-on-surface font-semibold">Select Receiving Organisation</span>
+              <select id="ngoSelect" class="w-full rounded-lg border border-outline bg-surface px-4 py-2.5 font-body text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary">
+                <option value="Anandam Bal Ashram">Anandam Bal Ashram (Adyar · Verified)</option>
+                <option value="Shanti Niketan Elders">Shanti Niketan Elders Home (Indiranagar · Verified)</option>
+                <option value="Karuna Kitchen">Karuna Community Kitchen (T. Nagar · Verified)</option>
+                <option value="Auto-Match Nearest Urgent Need">Auto-Match Nearest Urgent Need</option>
+              </select>
+            </label>
+
+            <label class="flex flex-col gap-1.5">
+              <span class="font-label text-label-md text-on-surface font-semibold">Preferred Pickup Date</span>
+              <input id="pickupDateInput" type="date" value="2026-11-22" class="w-full rounded-lg border border-outline bg-surface px-4 py-2.5 font-body text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary">
+            </label>
+
+            <label class="flex flex-col gap-1.5">
+              <span class="font-label text-label-md text-on-surface font-semibold">Preferred Time Slot</span>
+              <select id="pickupSlotInput" class="w-full rounded-lg border border-outline bg-surface px-4 py-2.5 font-body text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary">
+                <option>Morning (9:00 AM – 12:00 PM)</option>
+                <option>Afternoon (12:00 PM – 4:00 PM)</option>
+                <option>Evening (4:00 PM – 7:30 PM)</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-6 bg-secondary p-4 rounded-xl border border-outline-variant">
+            <label class="inline-flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="anonCheckbox" class="rounded border-outline text-primary focus:ring-primary">
+              <span class="font-body text-body-md text-on-surface">Donate Anonymously</span>
+            </label>
+            <label class="inline-flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="subCheckbox" class="rounded border-outline text-primary focus:ring-primary">
+              <span class="font-body text-body-md text-on-surface">Repeat as Monthly Donation Subscription</span>
+            </label>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-outline-variant">
+            <button type="button" onclick="saveDraft()" class="px-5 py-2.5 rounded-full bg-surface text-primary-hover border border-primary hover:bg-primary-tint font-label text-label-lg font-semibold transition-colors">
+              Save Draft
+            </button>
+            <div class="flex flex-wrap items-center gap-3">
+              <button type="button" onclick="document.getElementById('summaryBox').scrollIntoView({behavior:'smooth'})" class="px-5 py-2.5 rounded-full bg-surface-secondary text-on-surface border border-outline-variant hover:border-primary font-label text-label-lg font-semibold transition-colors">
+                View Summary
+              </button>
+              <button type="submit" class="px-6 py-3 rounded-full bg-primary text-on-primary hover:bg-primary-hover font-label text-label-lg font-semibold transition-colors shadow-sm">
+                Confirm Donation Request
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <aside id="summaryBox" class="lg:col-span-4 bg-surface rounded-2xl border border-outline-variant p-6 shadow-sm flex flex-col gap-5 sticky top-24">
+          <div class="flex items-center justify-between border-b border-outline-variant pb-3">
+            <h2 class="font-headline text-title-lg text-on-surface font-bold">Donation Summary</h2>
+            <span id="itemCountBadge" class="px-2.5 py-0.5 rounded-full bg-primary-container text-on-primary-container font-label text-label-sm font-semibold tabular-nums">2 Items</span>
+          </div>
+
+          <ul id="summaryList" class="flex flex-col gap-3">
+            <li class="p-3 rounded-xl bg-surface-secondary border border-outline-variant flex items-start justify-between gap-2 group">
+              <div>
+                <p class="font-label text-label-md text-on-surface font-semibold">Sona Masoori Rice &amp; Dal</p>
+                <p class="font-body text-body-sm text-on-surface-muted">Food &amp; Groceries · 15 kg · Sealed</p>
+              </div>
+              <button type="button" onclick="removeItem(this)" class="text-on-surface-muted hover:text-error transition-colors" title="Remove item">
+                <span class="material-symbols-outlined text-title-md">cancel</span>
+              </button>
+            </li>
+            <li class="p-3 rounded-xl bg-surface-secondary border border-outline-variant flex items-start justify-between gap-2 group">
+              <div>
+                <p class="font-label text-label-md text-on-surface font-semibold">Cotton Blankets</p>
+                <p class="font-body text-body-sm text-on-surface-muted">Blankets &amp; Sheets · 4 pcs · Gently Used</p>
+              </div>
+              <button type="button" onclick="removeItem(this)" class="text-on-surface-muted hover:text-error transition-colors" title="Remove item">
+                <span class="material-symbols-outlined text-title-md">cancel</span>
+              </button>
+            </li>
+          </ul>
+
+          <div class="bg-secondary rounded-xl p-4 border border-outline-variant flex flex-col gap-2.5">
+            <div class="flex justify-between font-body text-body-sm">
+              <span class="text-on-surface-muted">Receiving Ashram:</span>
+              <span id="summaryOrgName" class="font-label text-on-surface font-semibold">Anandam Bal Ashram</span>
+            </div>
+            <div class="flex justify-between font-body text-body-sm">
+              <span class="text-on-surface-muted">Pickup Slot:</span>
+              <span id="summarySlotTime" class="font-label text-on-surface font-semibold">22 Nov · Morning (9–12)</span>
+            </div>
+            <div class="flex justify-between font-body text-body-sm">
+              <span class="text-on-surface-muted">Verification:</span>
+              <span class="font-label text-primary-hover font-semibold">OTP + Photo Proof</span>
+            </div>
+          </div>
+
+          <p class="font-body text-body-sm text-on-surface-muted">
+            WhatsApp updates and your digital donation certificate will be sent automatically once delivered.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scheduled OTP Confirmation Modal -->
+  <div id="otpSuccessModal" class="hidden fixed inset-0 z-50 bg-on-surface/50 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-surface rounded-2xl max-w-md w-full p-6 border border-outline-variant shadow-2xl flex flex-col gap-5 text-center">
+      <div class="w-16 h-16 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center mx-auto">
+        <span class="material-symbols-outlined text-display-lg-mobile text-primary" aria-hidden="true">verified</span>
+      </div>
+      <div>
+        <span class="font-label text-label-sm text-primary-hover font-bold tracking-wide">PICKUP SCHEDULED SUCCESSFULLY</span>
+        <h2 class="font-headline text-headline-sm text-on-surface font-bold mt-1">Doorstep Pickup Confirmed!</h2>
+        <p class="font-body text-body-sm text-on-surface-muted mt-2">
+          Your delivery partner will arrive at the scheduled slot. Please share this secure OTP only during physical handover:
+        </p>
+      </div>
+
+      <div class="py-3 px-6 bg-secondary rounded-xl border border-outline-variant inline-block mx-auto">
+        <p class="font-body text-body-sm text-on-surface-muted">Your Pickup Verification OTP</p>
+        <p id="generatedOtpDisplay" class="font-display text-headline-lg font-bold text-primary tracking-widest tabular-nums mt-1">4829</p>
+      </div>
+
+      <div class="flex flex-col gap-2 pt-2">
+        <a href="../proof-of-donation/ProofOfDonation.html" class="w-full py-3 rounded-full bg-primary text-on-primary font-label text-label-lg font-semibold hover:bg-primary-hover transition-colors shadow-sm">
+          Track Live &amp; View Proof
+        </a>
+        <button type="button" onclick="document.getElementById('otpSuccessModal').classList.add('hidden')" class="w-full py-2.5 rounded-full text-on-surface-muted hover:text-on-surface font-label text-label-md font-semibold">
+          Dismiss
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-on-surface text-surface pt-10 pb-8 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-body text-body-sm text-surface/80">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-accent" aria-hidden="true">volunteer_activism</span>
+        <span class="font-headline text-title-md text-surface font-bold">SevaSetu</span>
+        <span>· Your Unused Items. Our Responsible Delivery. A Better Tomorrow.</span>
+      </div>
+      <p>© 2026 SevaSetu Social Impact Network</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/common.js"></script>
+  <script>
+    let currentCat = 'Food and Groceries';
+    let itemCount = 2;
+
+    function selectCategory(btn, name) {
+      currentCat = name;
+      document.getElementById('selectedCategoryPill').textContent = name;
+      document.querySelectorAll('.cat-btn').forEach(b => {
+        b.classList.remove('border-2', 'border-primary', 'bg-primary-tint');
+        b.classList.add('border', 'border-outline-variant', 'bg-surface');
+      });
+      btn.classList.remove('border', 'border-outline-variant', 'bg-surface');
+      btn.classList.add('border-2', 'border-primary', 'bg-primary-tint');
+    }
+
+    function handleFileUpload(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById('photoPreview').src = e.target.result;
+          document.getElementById('photoNameLabel').textContent = file.name;
+          showToast('Image uploaded: ' + file.name);
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function addItemToList() {
+      const name = document.getElementById('itemNameInput').value.trim();
+      const qty = document.getElementById('itemQtyInput').value.trim();
+      const cond = document.getElementById('itemConditionInput').value;
+
+      if (!name || !qty) {
+        showToast('Please enter item name and quantity', 'error');
+        return;
+      }
+
+      const li = document.createElement('li');
+      li.className = 'p-3 rounded-xl bg-surface-secondary border border-outline-variant flex items-start justify-between gap-2 group';
+      li.innerHTML = `
+        <div>
+          <p class="font-label text-label-md text-on-surface font-semibold">${name}</p>
+          <p class="font-body text-body-sm text-on-surface-muted">${currentCat} · ${qty} · ${cond}</p>
+        </div>
+        <button type="button" onclick="removeItem(this)" class="text-on-surface-muted hover:text-error transition-colors" title="Remove item">
+          <span class="material-symbols-outlined text-title-md">cancel</span>
+        </button>
+      `;
+
+      document.getElementById('summaryList').appendChild(li);
+      itemCount++;
+      document.getElementById('itemCountBadge').textContent = itemCount + ' Items';
+
+      // Reset item inputs for quick subsequent additions
+      document.getElementById('itemNameInput').value = '';
+      document.getElementById('itemQtyInput').value = '1 unit';
+      document.getElementById('itemNameInput').focus();
+      showToast(`Added "${name}" to donation list`);
+    }
+
+    function removeItem(btn) {
+      btn.closest('li').remove();
+      itemCount = Math.max(0, itemCount - 1);
+      document.getElementById('itemCountBadge').textContent = itemCount + ' Items';
+      showToast('Item removed from list');
+    }
+
+    function locateAddress() {
+      document.getElementById('pickupAddressInput').value = 'Flat 4B, Lotus Enclave, Luz Church Road, Mylapore, Chennai 600004 (GPS Verified)';
+      showToast('Current address detected from device GPS');
+    }
+
+    function saveDraft() {
+      const draft = {
+        category: currentCat,
+        itemCount: itemCount,
+        address: document.getElementById('pickupAddressInput').value,
+        ngo: document.getElementById('ngoSelect').value
+      };
+      localStorage.setItem('sevasetu_draft_items', JSON.stringify(draft));
+      showToast('Donation draft saved to your dashboard!');
+    }
+
+    async function submitDonationRequest() {
+      const donorUser = SevaStore.getUser();
+      const payload = {
+        donorName: donorUser ? donorUser.name : 'Priya Venkatesh',
+        donorPhone: document.getElementById('pickupPhoneInput').value,
+        category: currentCat,
+        itemCount: itemCount,
+        pickupAddress: document.getElementById('pickupAddressInput').value,
+        ngoName: document.getElementById('ngoSelect').value,
+        pickupDate: document.getElementById('pickupDateInput').value,
+        pickupSlot: document.getElementById('pickupSlotInput').value,
+        anonymous: document.getElementById('anonCheckbox').checked,
+        subscription: document.getElementById('subCheckbox').checked,
+        items: [
+          { name: document.getElementById('itemNameInput').value.trim() || 'Sona Masoori Rice & Toor Dal Pack', qty: document.getElementById('itemQtyInput').value || '15 kg', condition: document.getElementById('itemConditionInput').value }
+        ]
+      };
+
+      try {
+        const res = await SevaAPI.createDonation(payload);
+        if (res && res.success) {
+          document.getElementById('generatedOtpDisplay').textContent = res.otp;
+          const trackLink = document.querySelector('#otpSuccessModal a[href*="ProofOfDonation.html"]');
+          if (trackLink) {
+            trackLink.href = `../proof-of-donation/ProofOfDonation.html?id=${encodeURIComponent(res.trackingId)}`;
+          }
+          document.getElementById('otpSuccessModal').classList.remove('hidden');
+          showToast(`Donation ${res.trackingId} created in live backend database!`);
+        }
+      } catch (err) {
+        showToast('Error saving donation: ' + err.message, 'error');
+      }
+    }
+
+    // Pre-populate if query parameter passed
+    document.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const ngoParam = params.get('ngo');
+      if (ngoParam) {
+        const ngoSelect = document.getElementById('ngoSelect');
+        for (let i = 0; i < ngoSelect.options.length; i++) {
+          if (ngoSelect.options[i].text.includes(ngoParam) || ngoSelect.options[i].value.includes(ngoParam)) {
+            ngoSelect.selectedIndex = i;
+            document.getElementById('summaryOrgName').textContent = ngoParam;
+            break;
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

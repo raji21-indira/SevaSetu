@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Rescue &amp; Safety — SevaSetu</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    globalThis.tailwind = globalThis.tailwind || {};
+    globalThis.tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'primary': '#16845B',
+            'on-primary': '#FFFFFF',
+            'primary-hover': '#006C48',
+            'primary-container': '#BEFFDB',
+            'on-primary-container': '#002113',
+            'primary-tint': '#F4FFF6',
+            'secondary': '#FFF9F0',
+            'on-secondary': '#252A29',
+            'accent': '#F4B942',
+            'on-accent': '#271900',
+            'accent-container': '#FFEED8',
+            'on-accent-container': '#412D00',
+            'surface': '#FFFFFF',
+            'surface-secondary': '#F5F7F6',
+            'surface-container': '#EDF2F0',
+            'on-surface': '#252A29',
+            'on-surface-muted': '#5A5F5E',
+            'outline': '#C3C7C6',
+            'outline-variant': '#DFE3E1',
+            'success': '#16845B',
+            'on-success': '#FFFFFF',
+            'success-container': '#BEFFDB',
+            'on-success-container': '#002113',
+            'warning': '#9C6F00',
+            'on-warning': '#060606',
+            'warning-container': '#FFEED8',
+            'on-warning-container': '#271900',
+            'error': '#BA1A1A',
+            'on-error': '#FFFFFF',
+            'error-container': '#FFDAD6',
+            'on-error-container': '#410002',
+            'info': '#006398',
+            'on-info': '#FFFFFF',
+            'info-container': '#E7F2FF',
+            'on-info-container': '#001D31',
+          },
+          borderRadius: {
+            'sm': '6px',
+            'DEFAULT': '10px',
+            'md': '12px',
+            'lg': '16px',
+            'xl': '24px',
+            'full': '9999px',
+          },
+          fontFamily: {
+            'display': ['"Poppins"', 'sans-serif'],
+            'headline': ['"Poppins"', 'sans-serif'],
+            'title': ['"Inter"', 'sans-serif'],
+            'body': ['"Inter"', 'sans-serif'],
+            'label': ['"Inter"', 'sans-serif'],
+          },
+          fontSize: {
+            'display-lg': ['48px', { lineHeight: '56px', letterSpacing: '-0.5px', fontWeight: '700' }],
+            'display-lg-mobile': ['32px', { lineHeight: '40px', letterSpacing: '-0.25px', fontWeight: '700' }],
+            'headline-lg': ['36px', { lineHeight: '44px', letterSpacing: '-0.25px', fontWeight: '700' }],
+            'headline-lg-mobile': ['28px', { lineHeight: '36px', letterSpacing: '-0.25px', fontWeight: '700' }],
+            'headline-md': ['24px', { lineHeight: '32px', letterSpacing: '0px', fontWeight: '600' }],
+            'headline-sm': ['20px', { lineHeight: '28px', letterSpacing: '0px', fontWeight: '600' }],
+            'title-lg': ['18px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '600' }],
+            'title-md': ['16px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '600' }],
+            'body-lg': ['16px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '400' }],
+            'body-md': ['14px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+            'body-sm': ['12px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '400' }],
+            'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '600' }],
+            'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '600' }],
+            'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.3px', fontWeight: '600' }],
+          }
+        },
+      },
+    };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; vertical-align: middle; }
+  </style>
+</head>
+<body class="bg-surface-secondary text-on-surface font-body min-h-screen flex flex-col">
+
+  <!-- Shared App Header -->
+  <header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-outline-variant shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between gap-4 py-3.5">
+        <a href="../home/Home.html" class="flex items-center gap-2.5 shrink-0 hover:opacity-90 transition-opacity">
+          <div class="w-10 h-10 rounded-md bg-primary text-on-primary flex items-center justify-center shadow-sm">
+            <span class="material-symbols-outlined text-headline-sm" aria-hidden="true">volunteer_activism</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-headline text-title-lg text-on-surface leading-none font-bold">SevaSetu</span>
+            <span class="font-body text-body-sm text-primary-hover font-medium">Donate &amp; Rescue</span>
+          </div>
+        </a>
+
+        <nav aria-label="Main navigation" class="hidden xl:flex items-center gap-5">
+          <a href="../home/Home.html" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">Home</a>
+          <a href="../donate-items/DonateItems.html" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">Donate Items</a>
+          <a href="FoodRescue.html" class="font-label text-label-lg text-primary-hover border-b-2 border-primary pb-0.5 whitespace-nowrap font-semibold">Food Rescue</a>
+          <a href="../find-ashram/FindAshram.html" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">Find an Ashram</a>
+          <a href="../home/Home.html#how-it-works" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">How It Works</a>
+          <a href="../proof-of-donation/ProofOfDonation.html" class="font-label text-label-lg text-on-surface-muted hover:text-primary-hover transition-colors whitespace-nowrap">Track &amp; Proof</a>
+        </nav>
+
+        <div class="flex items-center gap-2.5 shrink-0">
+          <button type="button" onclick="toggleLang()" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-secondary text-on-surface border border-outline-variant hover:border-primary transition-colors" aria-label="Switch language">
+            <span class="material-symbols-outlined text-body-lg text-primary-hover" aria-hidden="true">translate</span>
+            <span id="langLabel" class="font-label text-label-sm font-semibold">EN / தமிழ்</span>
+          </button>
+
+          <div class="relative">
+            <button onclick="toggleNotificationDropdown()" type="button" aria-label="Notifications" class="relative inline-flex items-center justify-center w-10 h-10 rounded-full bg-surface-secondary text-on-surface hover:bg-surface-container transition-colors">
+              <span class="material-symbols-outlined text-title-lg" aria-hidden="true">notifications</span>
+              <span data-component-id="badge-numeric" aria-hidden="true" class="absolute -top-0.5 -right-0.5 inline-flex items-center justify-center min-w-4 h-4 px-1 rounded-full bg-error text-on-error tabular-nums text-label-sm font-bold">
+                3
+              </span>
+            </button>
+          </div>
+
+          <button type="button" onclick="document.getElementById('authModal').classList.remove('hidden')" aria-label="Login or Register" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-full bg-surface-secondary text-on-surface hover:bg-surface-container transition-colors border border-outline-variant">
+            <span class="material-symbols-outlined text-title-lg text-primary-hover" aria-hidden="true">account_circle</span>
+            <span class="hidden md:inline font-label text-label-md font-semibold">Priya</span>
+          </button>
+
+          <a href="../donate-items/DonateItems.html" class="hidden sm:inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full bg-primary text-on-primary hover:bg-primary-hover transition-colors whitespace-nowrap font-label text-label-md font-semibold shadow-sm">
+            Donate Now
+          </a>
+
+          <a href="FoodRescue.html" class="hidden sm:inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full bg-accent text-on-accent hover:opacity-90 transition-opacity whitespace-nowrap font-label text-label-md font-semibold shadow-sm">
+            Rescue Food
+          </a>
+
+          <button type="button" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')" class="xl:hidden inline-flex items-center justify-center w-10 h-10 rounded-full bg-surface-secondary text-on-surface" aria-label="Open menu">
+            <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobileMenu" class="hidden xl:hidden pb-4 border-t border-outline-variant pt-3">
+        <div class="grid grid-cols-2 gap-2">
+          <a href="../home/Home.html" class="px-3 py-2 rounded-md hover:bg-surface-secondary font-label text-label-md">Home</a>
+          <a href="../donate-items/DonateItems.html" class="px-3 py-2 rounded-md hover:bg-surface-secondary font-label text-label-md">Donate Items</a>
+          <a href="FoodRescue.html" class="px-3 py-2 rounded-md bg-primary-tint text-primary-hover font-label text-label-md font-semibold">Food Rescue</a>
+          <a href="../find-ashram/FindAshram.html" class="px-3 py-2 rounded-md hover:bg-surface-secondary font-label text-label-md">Find an Ashram</a>
+          <a href="../proof-of-donation/ProofOfDonation.html" class="px-3 py-2 rounded-md hover:bg-surface-secondary font-label text-label-md">Track &amp; Proof</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-8">
+      <!-- Hero Banner -->
+      <section class="bg-secondary rounded-2xl border border-outline-variant p-6 sm:p-8 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-sm">
+        <div class="max-w-2xl flex flex-col gap-3">
+          <span class="inline-flex items-center gap-1.5 self-start px-3.5 py-1.5 rounded-full bg-accent-container text-on-accent-container font-label text-label-sm font-bold">
+            <span class="material-symbols-outlined text-body-md" aria-hidden="true">eco</span>
+            DON'T WASTE FOOD. GIVE EVERY MEAL A PURPOSE.
+          </span>
+          <h1 class="font-headline text-headline-lg-mobile lg:text-headline-lg text-on-surface font-bold">Save Food. Share Happiness.</h1>
+          <p class="font-body text-body-lg text-on-surface-muted">
+            Every day, prepared meals and surplus food can go to waste. Our platform connects restaurants and food providers with verified organisations and people who need food within a strict 45-minute delivery window.
+          </p>
+        </div>
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" alt="Sealed hygienic food containers ready for rescue" class="w-full lg:w-80 h-48 object-cover rounded-xl border border-outline-variant shrink-0 shadow-md">
+      </section>
+
+      <!-- Two Major Options -->
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <button type="button" onclick="setRescueMode('cancelled')" id="modeCancelled" class="text-left p-6 rounded-2xl border-2 border-primary bg-surface shadow-sm flex flex-col gap-2 transition-all">
+          <div class="flex items-center justify-between">
+            <span class="font-label text-label-sm text-primary-hover font-bold">OPTION A · VOLUNTARY OPT-IN</span>
+            <span class="material-symbols-outlined text-primary-hover text-headline-sm" aria-hidden="true">receipt_long</span>
+          </div>
+          <h2 class="font-headline text-title-lg text-on-surface font-bold">Cancelled Food Order Rescue</h2>
+          <p class="font-body text-body-md text-on-surface-muted">When an eligible food order is cancelled, the restaurant or authorised food provider can voluntarily offer the prepared food for redistribution.</p>
+        </button>
+
+        <button type="button" onclick="setRescueMode('surplus')" id="modeSurplus" class="text-left p-6 rounded-2xl border border-outline-variant bg-surface hover:border-primary shadow-sm flex flex-col gap-2 transition-all">
+          <div class="flex items-center justify-between">
+            <span class="font-label text-label-sm text-on-accent-container font-bold">OPTION B · HOTELS, BAKERIES &amp; EVENTS</span>
+            <span class="material-symbols-outlined text-on-accent-container text-headline-sm" aria-hidden="true">lunch_dining</span>
+          </div>
+          <h2 class="font-headline text-title-lg text-on-surface font-bold">Surplus Food Donation</h2>
+          <p class="font-body text-body-md text-on-surface-muted">Restaurants, hotels, bakeries, catering companies, supermarkets, and event organisers can list safe surplus food for donation.</p>
+        </button>
+      </section>
+
+      <!-- Form + Food Safety Verification Panel -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <form id="foodRescueForm" onsubmit="event.preventDefault(); submitFoodRescue();" class="lg:col-span-7 bg-surface rounded-2xl border border-outline-variant p-6 sm:p-8 shadow-sm flex flex-col gap-5">
+          <div class="flex items-center justify-between border-b border-outline-variant pb-4">
+            <h2 class="font-headline text-headline-sm text-on-surface font-bold">Food Rescue Listing</h2>
+            <span id="rescueModeLabel" class="px-3.5 py-1 rounded-full bg-primary-container text-on-primary-container font-label text-label-sm font-semibold">Cancelled Order</span>
+          </div>
+
+          <div class="p-4 rounded-xl bg-secondary border border-outline-variant flex items-start gap-3">
+            <input type="checkbox" id="consentCheck" checked required class="rounded border-outline text-primary focus:ring-primary mt-1 shrink-0">
+            <label for="consentCheck" class="font-body text-body-sm text-on-surface">
+              <strong>Explicit Provider Consent:</strong> I confirm as the authorised restaurant/food provider that this food order is voluntarily offered for redistribution and has remained sealed, untouched, and unadulterated.
+            </label>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <label class="flex flex-col gap-1.5">
+              <span class="font-label text-label-md text-on-surface font-semibold">Restaurant / Provider Name *</span>
+              <input id="providerName" type="text" value="Dakshin Kitchen — Adyar" required class="rounded-lg border border-outline bg-surface px-3.5 py-2 font-body text-body-md focus:border-primary focus:ring-1 focus:ring-primary">
+            </label>
+            <label class="flex flex-col gap-1.5">
+              <span class="font-label text-label-md text-on-surface font-semibold">Order ID / Batch Number</span>
+              <input id="orderIdInput" type="text" value="ORD-CHN-88412" class="rounded-lg border border-outline bg-surface px-3.5 py-2 font-body text-body-md focus:border-primary focus:ring-1 focus:ring-primary">
+            </label>
+            <label class="flex flex-col gap-1.5 sm:col-span-2">
+              <span class="font-label text-label-md text-on-surface font-semibold">Food Item Name *</span>
+              <input id="foodItemName" type="text" value="Vegetable Pulao, Dal Tadka &amp; Chapati Boxes" required class="rounded-lg border border-outline bg-surface px-3.5 py-2 font-body text-body-md focus:border-primary focus:ring-1 focus:ring-primary">
+            </label>
+            <label class="flex flex-col gap-1.5">
+              <span class="font-label text-label-md text-on-surface font-semibold">Food Category</span>
+              <select class="rounded-lg border border-outline bg-surface px-3.5 py-2 font-body text-body-md focus:border-primary focus:ring-1 focus:ring-primary">
+                <option>Cooked Hot Meals</option>
+                <option>Bakery &amp; Breads</option>
+                <option>Packaged / Sealed Dry Snacks</option>
+                <option>Fresh Fruits &amp; Dairy</option>
+              </select>
+            </label>
+            <label class="flex flex-col gap-1.5">
+              <span class="font-label text-label-md text-on-surface font-semibold">Number of Meal Portions *</span>
+              <input id="portionCount" type="number" min="1" value="35" required class="rounded-lg border border-outline bg-surface px-3.5 py-2 font-body text-body-md tabular-nums focus:border-primary focus:ring-1 focus:ring-primary">
+            </label>
+            <div class="flex flex-col gap-1.5 sm:col-span-2">
+              <span class="font-label text-label-md text-on-surface font-semibold">Dietary Identification</span>
+              <div class="flex gap-3 pt-1">
+                <label class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-primary-container text-on-primary-container font-label text-label-sm font-semibold cursor-pointer">
+                  <input type="radio" name="diet" value="veg" checked class="text-primary focus:ring-primary"> Vegetarian
+                </label>
+                <label class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-surface-secondary border border-outline-variant font-label text-label-sm font-semibold cursor-pointer">
+                  <input type="radio" name="diet" value="nonveg" class="text-primary focus:ring-primary"> Non-Vegetarian
+                </label>
+              </div>
+            </div>
+            <label class="flex flex-col gap-1.5">
+              <span class="font-label text-label-md text-on-surface font-semibold">Preparation Time</span>
+              <input id="prepTimeInput" type="time" value="18:30" class="rounded-lg border border-outline bg-surface px-3.5 py-2 font-body text-body-md focus:border-primary focus:ring-1 focus:ring-primary">
+            </label>
+            <label class="flex flex-col gap-1.5">
+              <span class="font-label text-label-md text-on-surface font-semibold">Available Until Time</span>
+              <input id="expiryTimeInput" type="time" value="21:30" class="rounded-lg border border-outline bg-surface px-3.5 py-2 font-body text-body-md focus:border-primary focus:ring-1 focus:ring-primary">
+            </label>
+
+            <!-- Key interactive safety factors -->
+            <label class="flex flex-col gap-1.5">
+              <span class="font-label text-label-md text-on-surface font-semibold">Packaging Status *</span>
+              <select id="packagingSelect" onchange="runSafetyCheck()" class="rounded-lg border border-outline bg-surface px-3.5 py-2 font-body text-body-md focus:border-primary focus:ring-1 focus:ring-primary font-medium">
+                <option value="sealed">Tamper-Evident Sealed Containers</option>
+                <option value="covered">Hygienic Covered Trays</option>
+                <option value="opened">Opened / Unsealed (Unsafe)</option>
+              </select>
+            </label>
+            <label class="flex flex-col gap-1.5">
+              <span class="font-label text-label-md text-on-surface font-semibold">Storage Conditions *</span>
+              <select id="storageSelect" onchange="runSafetyCheck()" class="rounded-lg border border-outline bg-surface px-3.5 py-2 font-body text-body-md focus:border-primary focus:ring-1 focus:ring-primary font-medium">
+                <option value="hot">Hot-Held (&gt; 60°C) in Insulated Box</option>
+                <option value="chilled">Refrigerated (&lt; 5°C)</option>
+                <option value="ambient_old">Room Temp &gt; 4 Hours (Unsafe)</option>
+              </select>
+            </label>
+
+            <label class="flex flex-col gap-1.5 sm:col-span-2">
+              <span class="font-label text-label-md text-on-surface font-semibold">Allergen Information</span>
+              <input type="text" value="Contains Dairy (Ghee/Paneer) and Cashews. Nut-free option unavailable." class="rounded-lg border border-outline bg-surface px-3.5 py-2 font-body text-body-md focus:border-primary focus:ring-1 focus:ring-primary">
+            </label>
+            <label class="flex flex-col gap-1.5 sm:col-span-2">
+              <span class="font-label text-label-md text-on-surface font-semibold">Pickup Address *</span>
+              <input id="foodPickupAddress" type="text" value="24, Sardar Patel Road, Adyar, Chennai 600020" required class="rounded-lg border border-outline bg-surface px-3.5 py-2 font-body text-body-md focus:border-primary focus:ring-1 focus:ring-primary">
+            </label>
+            <label class="flex flex-col gap-1.5">
+              <span class="font-label text-label-md text-on-surface font-semibold">Contact Number *</span>
+              <input type="tel" value="+91 98401 22334" required class="rounded-lg border border-outline bg-surface px-3.5 py-2 font-body text-body-md focus:border-primary focus:ring-1 focus:ring-primary">
+            </label>
+            <label class="flex flex-col gap-1.5">
+              <span class="font-label text-label-md text-on-surface font-semibold">Target Community Kitchen</span>
+              <select id="targetKitchen" class="rounded-lg border border-outline bg-surface px-3.5 py-2 font-body text-body-md focus:border-primary focus:ring-1 focus:ring-primary">
+                <option value="Karuna Kitchen">Karuna Community Kitchen (Adyar - 1.2 km)</option>
+                <option value="Anandam Bal Ashram">Anandam Bal Ashram (2.1 km)</option>
+                <option value="Auto Match">Auto-Dispatch to Closest Center</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="pt-4 border-t border-outline-variant flex items-center justify-between gap-3">
+            <span class="text-xs text-on-surface-muted">Estimated pickup dispatch: <strong class="text-primary font-semibold">8–12 minutes</strong></span>
+            <button id="btnSubmitRescue" type="submit" class="px-6 py-3 rounded-full bg-accent text-on-accent font-label text-label-lg font-semibold hover:opacity-90 transition-opacity shadow-sm flex items-center gap-2">
+              <span>Confirm Food Rescue</span>
+              <span class="material-symbols-outlined text-title-md">arrow_forward</span>
+            </button>
+          </div>
+        </form>
+
+        <!-- Dedicated Food Safety Verification Interface -->
+        <aside class="lg:col-span-5 bg-surface rounded-2xl border border-outline-variant p-6 shadow-sm flex flex-col gap-5 sticky top-24">
+          <div class="flex items-center justify-between border-b border-outline-variant pb-3">
+            <h2 class="font-headline text-title-lg text-on-surface font-bold">Food Safety Verification</h2>
+            <span class="material-symbols-outlined text-primary-hover text-headline-sm" aria-hidden="true">health_and_safety</span>
+          </div>
+
+          <div class="flex flex-wrap gap-2">
+            <span id="badgeApproved" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-success-container text-on-success-container font-label text-label-sm font-semibold shadow-sm">
+              <span class="material-symbols-outlined text-body-md" aria-hidden="true">verified</span>
+              <span>Approved for Rescue</span>
+            </span>
+            <span id="badgePending" class="hidden inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-warning-container text-on-warning-container font-label text-label-sm font-semibold">
+              <span class="material-symbols-outlined text-body-md" aria-hidden="true">schedule</span>
+              <span>Pending Inspection</span>
+            </span>
+            <span id="badgeRejected" class="hidden inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-error-container text-on-error-container font-label text-label-sm font-semibold">
+              <span class="material-symbols-outlined text-body-md" aria-hidden="true">gpp_bad</span>
+              <span>Rejected – Food Safety Issue</span>
+            </span>
+          </div>
+
+          <!-- Unsafe alert box -->
+          <div id="safetyWarningBox" class="hidden p-4 rounded-xl bg-error-container text-on-error-container border border-error flex items-start gap-3" role="alert">
+            <span class="material-symbols-outlined text-title-lg text-error shrink-0" aria-hidden="true">warning</span>
+            <div>
+              <p class="font-label text-label-md font-bold text-error">Unsafe Food Rejected Automatically</p>
+              <p class="font-body text-body-sm mt-0.5">Opened containers or food held at room temperature over 4 hours cannot be redistributed under our zero-risk food safety &amp; FSSAI guidelines.</p>
+            </div>
+          </div>
+
+          <div class="bg-surface-secondary rounded-xl p-4 border border-outline-variant flex flex-col gap-3">
+            <div class="flex justify-between font-body text-body-sm">
+              <span class="text-on-surface-muted">Preparation Time:</span>
+              <span id="labelPrep" class="font-label text-on-surface font-semibold tabular-nums">6:30 PM (Freshly cooked)</span>
+            </div>
+            <div class="flex justify-between font-body text-body-sm">
+              <span class="text-on-surface-muted">Temperature Condition:</span>
+              <span id="labelTemp" class="font-label text-primary-hover font-semibold tabular-nums">64°C Hot-Held (Safe)</span>
+            </div>
+            <div class="flex justify-between font-body text-body-sm">
+              <span class="text-on-surface-muted">Packaging Condition:</span>
+              <span id="labelPkg" class="font-label text-on-surface font-semibold">Tamper-Evident Sealed</span>
+            </div>
+            <div class="flex justify-between font-body text-body-sm">
+              <span class="text-on-surface-muted">Dietary / Allergen:</span>
+              <span class="font-label text-on-surface font-semibold">Pure Veg · Contains Dairy &amp; Nuts</span>
+            </div>
+            <div class="flex justify-between font-body text-body-sm">
+              <span class="text-on-surface-muted">Safe Consumption Deadline:</span>
+              <span class="font-label text-error font-semibold tabular-nums">10:30 PM Today</span>
+            </div>
+          </div>
+
+          <div class="p-3.5 bg-primary-tint rounded-xl border border-primary/20 flex items-center gap-2.5">
+            <span class="material-symbols-outlined text-primary text-title-md">timer</span>
+            <p class="font-body text-body-sm text-on-surface">
+              Our 45-minute cold/hot chain ensures food reaches destination within safe microbiological window.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Food Rescue Success Modal -->
+  <div id="rescueSuccessModal" class="hidden fixed inset-0 z-50 bg-on-surface/50 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-surface rounded-2xl max-w-md w-full p-6 border border-outline-variant shadow-2xl flex flex-col gap-5 text-center">
+      <div class="w-16 h-16 rounded-full bg-accent-container text-on-accent-container flex items-center justify-center mx-auto">
+        <span class="material-symbols-outlined text-display-lg-mobile text-accent" aria-hidden="true">check_circle</span>
+      </div>
+      <div>
+        <span class="font-label text-label-sm text-primary-hover font-bold tracking-wide">MISSION DISPATCHED</span>
+        <h2 class="font-headline text-headline-sm text-on-surface font-bold mt-1">Food Rescue Partner En Route!</h2>
+        <p class="font-body text-body-sm text-on-surface-muted mt-2">
+          Insulated Cargo EV partner assigned. Estimated arrival at your kitchen in <strong>8 minutes</strong>. 
+        </p>
+      </div>
+
+      <div class="py-3 px-6 bg-secondary rounded-xl border border-outline-variant inline-block mx-auto">
+        <p class="font-body text-body-sm text-on-surface-muted">Rescue Verification Code</p>
+        <p class="font-display text-headline-lg font-bold text-accent tracking-widest tabular-nums mt-1">RESC-7720</p>
+      </div>
+
+      <div class="flex flex-col gap-2 pt-2">
+        <a href="../proof-of-donation/ProofOfDonation.html" class="w-full py-3 rounded-full bg-accent text-on-accent font-label text-label-lg font-semibold hover:opacity-90 transition-opacity shadow-sm">
+          Track Delivery Live
+        </a>
+        <button type="button" onclick="document.getElementById('rescueSuccessModal').classList.add('hidden')" class="w-full py-2.5 rounded-full text-on-surface-muted hover:text-on-surface font-label text-label-md font-semibold">
+          Dismiss
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-on-surface text-surface pt-10 pb-8 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-body text-body-sm text-surface/80">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-accent" aria-hidden="true">volunteer_activism</span>
+        <span class="font-headline text-title-md text-surface font-bold">SevaSetu</span>
+        <span>· Don't Waste Food. Give Every Meal a Purpose.</span>
+      </div>
+      <p>© 2026 SevaSetu Social Impact Network</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/api.js"></script>
+  <script src="../assets/js/common.js"></script>
+  <script>
+    function setRescueMode(mode) {
+      const c = document.getElementById('modeCancelled');
+      const s = document.getElementById('modeSurplus');
+      const label = document.getElementById('rescueModeLabel');
+      if (mode === 'cancelled') {
+        c.classList.add('border-2', 'border-primary');
+        c.classList.remove('border-outline-variant');
+        s.classList.remove('border-2', 'border-primary');
+        s.classList.add('border', 'border-outline-variant');
+        label.textContent = 'Cancelled Order';
+      } else {
+        s.classList.add('border-2', 'border-primary');
+        s.classList.remove('border-outline-variant');
+        c.classList.remove('border-2', 'border-primary');
+        c.classList.add('border', 'border-outline-variant');
+        label.textContent = 'Surplus Food';
+      }
+    }
+
+    function runSafetyCheck() {
+      const pkg = document.getElementById('packagingSelect').value;
+      const stor = document.getElementById('storageSelect').value;
+      const warn = document.getElementById('safetyWarningBox');
+      const app = document.getElementById('badgeApproved');
+      const pen = document.getElementById('badgePending');
+      const rej = document.getElementById('badgeRejected');
+      const btn = document.getElementById('btnSubmitRescue');
+
+      const labelTemp = document.getElementById('labelTemp');
+      const labelPkg = document.getElementById('labelPkg');
+
+      if (pkg === 'opened' || stor === 'ambient_old') {
+        warn.classList.remove('hidden');
+        app.classList.add('hidden');
+        pen.classList.add('hidden');
+        rej.classList.remove('hidden');
+        btn.disabled = true;
+        btn.classList.add('opacity-50', 'cursor-not-allowed');
+
+        labelTemp.textContent = stor === 'ambient_old' ? 'Room Temp > 4h (Unsafe Expiry)' : 'Warning: Exposure Risk';
+        labelTemp.className = 'font-label text-error font-semibold';
+        labelPkg.textContent = pkg === 'opened' ? 'Opened / Unsealed (Violates FSSAI)' : 'Covered Tray';
+      } else if (pkg === 'covered' || stor === 'chilled') {
+        warn.classList.add('hidden');
+        app.classList.add('hidden');
+        pen.classList.remove('hidden');
+        rej.classList.add('hidden');
+        btn.disabled = false;
+        btn.classList.remove('opacity-50', 'cursor-not-allowed');
+
+        labelTemp.textContent = stor === 'chilled' ? '4°C Refrigerated (Safe)' : '64°C Hot-Held';
+        labelTemp.className = 'font-label text-warning font-semibold';
+        labelPkg.textContent = pkg === 'covered' ? 'Hygienic Covered Trays' : 'Tamper-Evident Sealed';
+      } else {
+        warn.classList.add('hidden');
+        app.classList.remove('hidden');
+        pen.classList.add('hidden');
+        rej.classList.add('hidden');
+        btn.disabled = false;
+        btn.classList.remove('opacity-50', 'cursor-not-allowed');
+
+        labelTemp.textContent = '64°C Hot-Held (Optimal)';
+        labelTemp.className = 'font-label text-primary-hover font-semibold';
+        labelPkg.textContent = 'Tamper-Evident Sealed';
+      }
+    }
+
+    async function submitFoodRescue() {
+      const pkg = document.getElementById('packagingSelect').value;
+      const stor = document.getElementById('storageSelect').value;
+      if (pkg === 'opened' || stor === 'ambient_old') {
+        showToast('Cannot submit: Food fails safety checks', 'error');
+        return;
+      }
+
+      const dietRadio = document.querySelector('input[name="diet"]:checked');
+      const payload = {
+        providerName: document.getElementById('providerName').value,
+        orderId: document.getElementById('orderIdInput').value,
+        foodItem: document.getElementById('foodItemName').value,
+        portions: parseInt(document.getElementById('portionCount').value) || 35,
+        diet: dietRadio ? dietRadio.value : 'Vegetarian',
+        prepTime: document.getElementById('prepTimeInput').value,
+        expiryTime: document.getElementById('expiryTimeInput').value,
+        packagingStatus: pkg,
+        storageCondition: stor,
+        pickupAddress: document.getElementById('foodPickupAddress').value,
+        targetKitchen: document.getElementById('targetKitchen').value
+      };
+
+      try {
+        const res = await SevaAPI.createFoodRescue(payload);
+        if (res && res.success) {
+          const codeEl = document.querySelector('#rescueSuccessModal .font-display');
+          if (codeEl) codeEl.textContent = res.id;
+          document.getElementById('rescueSuccessModal').classList.remove('hidden');
+          showToast(`Food rescue mission ${res.id} recorded in backend database!`);
+        }
+      } catch (err) {
+        showToast(err.message, 'error');
+      }
+    }
+  </script>
+</body>
+</html>
